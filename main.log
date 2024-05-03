@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  2 MAY 2024 13:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  3 MAY 2024 13:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -579,7 +579,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Images/Logo-ENS-Paris-Saclay.png, id=14, 674.52pt x 300.12125pt>
+<Images/Logo-ENS-Paris-Saclay.png, id=22, 674.52pt x 300.12125pt>
 File: Images/Logo-ENS-Paris-Saclay.png Graphic file (type png)
 <use Images/Logo-ENS-Paris-Saclay.png>
 Package pdftex.def Info: Images/Logo-ENS-Paris-Saclay.png  used on input line 50.
@@ -592,7 +592,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/Logo-Universite-Paris-Saclay.jpg, id=16, 481.8pt x 321.2pt>
+<Images/Logo-Universite-Paris-Saclay.jpg, id=24, 481.8pt x 321.2pt>
 File: Images/Logo-Universite-Paris-Saclay.jpg Graphic file (type jpg)
 <use Images/Logo-Universite-Paris-Saclay.jpg>
 Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input line 54.
@@ -609,20 +609,20 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-13>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 00A62286679EB09A06B1B9E88DDBE3C7;200.
+(rerunfilecheck)             Checksum: 6C4AF8F77368593EAB4B6FF249677EA3;630.
  ) 
 Here is how much of TeX's memory you used:
- 23678 strings out of 474462
- 449187 string characters out of 5743355
- 1929998 words of memory out of 5000000
- 45635 multiletter control sequences out of 15000+600000
+ 23682 strings out of 474462
+ 449247 string characters out of 5743355
+ 1930998 words of memory out of 5000000
+ 45637 multiletter control sequences out of 15000+600000
  561894 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,8n,107p,472b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on main.pdf (3 pages, 132643 bytes).
+<C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on main.pdf (3 pages, 155437 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 39 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 55 words of extra memory for PDF output out of 10000 (max. 10000000)
 
