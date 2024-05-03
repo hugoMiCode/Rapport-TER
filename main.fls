@@ -279,6 +279,13 @@ INPUT main.toc
 OUTPUT main.toc
 INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
+INPUT .\Images\RL.png
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
