@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  3 MAY 2024 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  10 MAY 2024 17:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,56 +492,109 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip57
 )
-(C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+(C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/02/07 v24.2 The Babel package
+\babel@savecnt=\count315
+\U@D=\dimen278
+\l@unhyphenated=\language79
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count316
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.ldf
+Language: french 2023-12-19 v3.5r French support from the babel system
+Package babel Info: Hyphen rules for 'acadian' set to \l@french
+(babel)             (\language22). Reported on input line 91.
+Package babel Info: Hyphen rules for 'canadien' set to \l@french
+(babel)             (\language22). Reported on input line 92.
+\FB@stdchar=\count317
+Package babel Info: Making : an active character on input line 420.
+Package babel Info: Making ; an active character on input line 421.
+Package babel Info: Making ! an active character on input line 422.
+Package babel Info: Making ? an active character on input line 423.
+\FBguill@level=\count318
+\FBold@everypar=\toks44
+\FB@Mht=\dimen279
+\mc@charclass=\count319
+\mc@charfam=\count320
+\mc@charslot=\count321
+\std@mcc=\count322
+\dec@mcc=\count323
+\FB@parskip=\dimen280
+\listindentFB=\dimen281
+\descindentFB=\dimen282
+\labelindentFB=\dimen283
+\labelwidthFB=\dimen284
+\leftmarginFB=\dimen285
+\parindentFFN=\dimen286
+\FBfnindent=\dimen287
+)) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel-french.tex
+Package babel Info: Importing font and identification data for french
+(babel)             from babel-fr.ini. Reported on input line 11.
+) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count315
+\l__color_backend_stack_int=\count324
 \l__pdf_internal_box=\box66
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-Package hyperref Info: Link coloring OFF on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+Package hyperref Info: Link coloring OFF on input line 19.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen278
+\scratchcounter=\count325
+\scratchdimen=\dimen288
 \scratchbox=\box67
-\nofMPsegments=\count317
-\nofMParguments=\count318
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen279
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
-\everyMPtoPDFconversion=\toks45
+\nofMPsegments=\count326
+\nofMParguments=\count327
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count328
+\MPscratchDim=\dimen289
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
+\everyMPtoPDFconversion=\toks46
 ) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: french babel package is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
@@ -579,23 +632,25 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Images/Logo-ENS-Paris-Saclay.png, id=46, 674.52pt x 300.12125pt>
+LaTeX Info: Redefining \degres on input line 19.
+LaTeX Info: Redefining \up on input line 19.
+<Images/Logo-ENS-Paris-Saclay.png, id=54, 674.52pt x 300.12125pt>
 File: Images/Logo-ENS-Paris-Saclay.png Graphic file (type png)
 <use Images/Logo-ENS-Paris-Saclay.png>
-Package pdftex.def Info: Images/Logo-ENS-Paris-Saclay.png  used on input line 50.
+Package pdftex.def Info: Images/Logo-ENS-Paris-Saclay.png  used on input line 55.
 (pdftex.def)             Requested size: 138.20398pt x 61.48862pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
 (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/Logo-Universite-Paris-Saclay.jpg, id=48, 481.8pt x 321.2pt>
+<Images/Logo-Universite-Paris-Saclay.jpg, id=56, 481.8pt x 321.2pt>
 File: Images/Logo-Universite-Paris-Saclay.jpg Graphic file (type jpg)
 <use Images/Logo-Universite-Paris-Saclay.jpg>
-Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input line 54.
+Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input line 59.
 (pdftex.def)             Requested size: 138.20398pt x 92.13599pt.
  [1
 
@@ -604,31 +659,48 @@ Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input 
 \openout5 = `main.toc'.
 
  [2]
-<Images/RL.png, id=75, 392.46625pt x 129.48375pt>
+<Images/RL.png, id=86, 392.46625pt x 129.48375pt>
 File: Images/RL.png Graphic file (type png)
 <use Images/RL.png>
-Package pdftex.def Info: Images/RL.png  used on input line 94.
+Package pdftex.def Info: Images/RL.png  used on input line 99.
 (pdftex.def)             Requested size: 307.12207pt x 101.33278pt.
- [3 <./Images/RL.png>] [4] (main.aux)
+ [3 <./Images/RL.png>]
+<Images/Webots.png, id=97, 1379.1525pt x 744.53156pt>
+File: Images/Webots.png Graphic file (type png)
+<use Images/Webots.png>
+Package pdftex.def Info: Images/Webots.png  used on input line 121.
+(pdftex.def)             Requested size: 460.6753pt x 248.69537pt.
+<Images/Circuit.png, id=98, 1671.99657pt x 739.26187pt>
+File: Images/Circuit.png Graphic file (type png)
+<use Images/Circuit.png>
+Package pdftex.def Info: Images/Circuit.png  used on input line 137.
+(pdftex.def)             Requested size: 460.6753pt x 203.6868pt.
+ [4 <./Images/Webots.png>]
+<Images/Voiture.png, id=105, 1028.34187pt x 466.74374pt>
+File: Images/Voiture.png Graphic file (type png)
+<use Images/Voiture.png>
+Package pdftex.def Info: Images/Voiture.png  used on input line 149.
+(pdftex.def)             Requested size: 460.6753pt x 209.09264pt.
+ [5 <./Images/Circuit.png> <./Images/Voiture.png>] [6] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-13>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A746509DC861AB33236CE82A079ED316;1394.
+(rerunfilecheck)             Checksum: 4B81C25DAF89B9EEA5E06535664D55FE;1552.
  ) 
 Here is how much of TeX's memory you used:
- 23708 strings out of 474462
- 449622 string characters out of 5743355
- 1932998 words of memory out of 5000000
- 45655 multiletter control sequences out of 15000+600000
- 561894 words of font info for 51 fonts, out of 8000000 for 9000
+ 25727 strings out of 474462
+ 483850 string characters out of 5743355
+ 1931998 words of memory out of 5000000
+ 47630 multiletter control sequences out of 15000+600000
+ 567374 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,8n,107p,472b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on main.pdf (4 pages, 167630 bytes).
+ 102i,8n,107p,472b,457s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on main.pdf (6 pages, 1425926 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
 
