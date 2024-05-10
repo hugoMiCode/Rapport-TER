@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[french]{article}
 
 \usepackage{amsmath} % for \text
 \usepackage{amssymb} % for \mathbb
@@ -11,7 +11,8 @@
 \usepackage{float} % for H in figure
 \usepackage{geometry} % for \newgeometry
 \usepackage{fullpage} % for fullpage
-
+\usepackage{babel} % for french
+\usepackage[T1]{fontenc} % for french
 
 \geometry{left = 1.8cm, right = 1.8cm}
 
@@ -34,6 +35,10 @@
 \end{center}
 \bigskip
 \noindent\rule{\textwidth}{0.6mm}
+
+\begin{center}
+    \today
+\end{center}
 
 \bigskip
 \begin{center}
@@ -99,18 +104,65 @@ d'apprendre à prendre des décisions en interagissant avec un environnement.
 L'agent prend des actions dans l'environnement et reçoit une récompense en fonction de l'action qu'il a prise. 
 L'objectif de l'agent est de maximiser la somme des récompenses qu'il reçoit au cours des itérations. 
 
+
+\section{Voiture}
+
 \section{Simulation}
 
-\subsection{Webots}
+\subsection{Le simulateur Webots}
+\noindent
+Le logiciel utilisé pour la simulation est Webots R2023b. Webots est un logiciel de simulation de robotique développé 
+par Cyberbotics. Il permet de simuler des robots dans un environnement 3D que l'on peut personnaliser. Dans notre cas,
+nous avons utilisé Webots pour simuler une voiture RC sur un circuit. Nous avons utilisé le langage de programmation
+Python pour contrôler la voiture dans le simulateur.
 
-Webots est un logiciel de simulation de robotique développé par Cyberbotics. Il permet de simuler des robots dans un 
-environnement 3D. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Webots.png}
+    \caption{Capture d'écran de Webots}
+\end{figure}
+
+\noindent
+Note: Présenter le circuit, la voiture, le lidar, le code Python etc...
+
+\subsection{Le circuit}
+\noindent
+Le circuit dans l'environment de Webots a pour but de simuler un circuit réel sur lequel la voiture autonome doit
+apprendre à conduire. Les murs du circuit sont composés de blocs de couleur différentes pour les bordures extérieur et 
+intérieur du circuit. Ces murs ont une auteur d'une dizaine de centimètres qui permettent au lidar de mesurer la distance
+entre la voiture et les murs.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Circuit.png}
+    \caption{Capture d'écran du circuit}
+\end{figure}
+
+\subsection{La voiture}
+\noindent
+La voiture utilisée dans le simulateur est une voiture RC au format $1/10^{\text{ème}}$. Elle a pour objectif de
+reproduire le plus fidèlement possible une voiture réelle. La voiture est équipée d'un lidar qui permet de mesurer la
+distance entre la voiture et les murs du circuit.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Voiture.png}
+    \caption{Capture d'écran de la voiture}
+\end{figure}
+
+\subsection{Le lidar}
+
 
 \section{Simulation to real world}
+\noindent
+L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. Une fois 
+le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière autonome sur 
+un circuit réel. Un des principaux défis du SimToReal est de reproduire le plus fidèlement possible les conditions du monde 
+réel dans le simulateur.
 
-\subsection{Transfert du réseau de neurones}
 
-\section{Résultats}
+
+
 
 \section{Conclusion}
 
