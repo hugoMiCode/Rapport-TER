@@ -226,6 +226,29 @@ l'angle de direction via le servomoteur et l'incrémentation de la vitesse via l
 
 \section{Entraînement du réseau de neurones}
 \subsection{Algorithme d'apprentissage}
+\subsubsection*{Circuit d'entraînement}
+La piste d'entraînement utilisée est conçue pour offrir une variété de situations afin que la voiture puisse 
+apprendre à gérer différentes circonstances qu'elle pourrait rencontrer en course. Le circuit est composé de virages 
+à gauche et à droite, de longues lignes droites, de virages en épingle et d'une section en diagonale. 
+La piste retenue est la suivante:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Images/Piste Entrainement.png}
+\caption{Piste d'entraînement pour l'apprentissage par renforcement}
+\end{figure}
+
+Sur ce circuit, nous avons ajouté trois autres voitures qui roulent à vitesse modérée pour simuler des situations 
+de dépassement. Ces voitures suivent un algorithme de conduite simple qui consiste à rester à distance des murs.
+
+\vspace{0.5cm}
+Pour cet environnement, nous avons également intégré un robot "Superviseur" qui repositionne les voitures à des 
+positions aléatoires lorsque nous souhaitons recommencer un épisode. Ce "Superviseur" choisit aléatoirement 
+une position et une direction sur le circuit pour replacer les voitures, assurant ainsi une situation initiale 
+nouvelle à chaque début d'épisode. La communication avec le "Superviseur" se fait via un système émetteur-récepteur 
+intégré dans Webots.
+
+
 \subsubsection*{Environment Gym}
 La bibliothèque Gym est une bibliothèque implémentée en Python qui permet de gérer la partie apprentissage par 
 renforcement d'un réseau de neurones. Dans le cas de notre projet, Gym ne propose pas d'environnement adapté. 

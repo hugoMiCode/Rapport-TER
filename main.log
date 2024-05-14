@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  15 MAY 2024 00:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.26)  15 MAY 2024 00:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -683,10 +683,16 @@ File: Images/Voiture.png Graphic file (type png)
 Package pdftex.def Info: Images/Voiture.png  used on input line 170.
 (pdftex.def)             Requested size: 460.6753pt x 209.09264pt.
  [6 <./Images/Circuit.png> <./Images/Voiture.png>] [7]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 243.
+<Images/Piste Entrainement.png, id=158, 953.81343pt x 847.66687pt>
+File: Images/Piste Entrainement.png Graphic file (type png)
+<use Images/Piste Entrainement.png>
+Package pdftex.def Info: Images/Piste Entrainement.png  used on input line 237.
+(pdftex.def)             Requested size: 409.49348pt x 363.93347pt.
+ [8 <./Images/Piste Entrainement.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 266.
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [8] [9] (main.aux)
+) [9] [10] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-13>
@@ -695,17 +701,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5B4641CBD40EBADBB724EA14BA6DF8BA;3076.
  ) 
 Here is how much of TeX's memory you used:
- 25773 strings out of 474462
- 484848 string characters out of 5743355
- 1934998 words of memory out of 5000000
- 47657 multiletter control sequences out of 15000+600000
+ 25783 strings out of 474462
+ 485134 string characters out of 5743355
+ 1935998 words of memory out of 5000000
+ 47664 multiletter control sequences out of 15000+600000
  567687 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,8n,107p,472b,457s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on main.pdf (9 pages, 1466684 bytes).
+Output written on main.pdf (10 pages, 1774141 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 
