@@ -100,9 +100,36 @@ d'apprendre à prendre des décisions en interagissant avec un environnement.
     \caption{Schéma de l'apprentissage par renforcement}
 \end{figure}
 
-\noindent
 L'agent prend des actions dans l'environnement et reçoit une récompense en fonction de l'action qu'il a prise. 
-L'objectif de l'agent est de maximiser la somme des récompenses qu'il reçoit au cours des itérations. 
+L'objectif de l'agent est de maximiser la somme des récompenses qu'il reçoit au cours des itérations.
+
+\vspace{0.5cm}
+Lors de chaque étape, l'agent reçoit une observation de l'environnement dans lequel il évolue. Sur la base 
+de cette observation, l'agent prend une décision parmi un ensemble d'actions possible appelé espace des actions. 
+Cet espace peut dépendre de l'état dans lequel se trouve l'agent.
+
+\vspace{0.5cm}
+Un exemple simple est celui d'un jeu d'échecs dans lequel l'observation correspond à la position de chacune des 
+pièces sur l'échiquier et l'espace des actions est l'ensemble des déplacements possibles des pièces. 
+Naturellement, on souhaite que l'agent réalise la meilleure action possible suivant l'observation reçue. 
+Pour atteindre ce but, l'agent applique une politique d'action (notée $\pi$) qu'il utilise pour sa prise de décision.
+À chaque récompense obtenue, cette politique est mise à jour. On espère ainsi atteindre une politique optimale.
+
+\vspace{0.5cm}
+Pour entraîner un agent, plusieurs types de méthodes peuvent être utilisées. Ces méthodes estiment la somme des 
+récompenses futures que l'agent devrait obtenir. Ces récompenses sont pondérées pour favoriser les récompenses 
+à court terme. La politique obtenue est souvent modélisée par un réseau de neurones, dont l'actualisation modifie 
+les poids du réseau.
+
+\vspace{0.5cm}
+\noindent
+Les méthodes d'apprentissage par renforcement peuvent être classées en trois catégories principales :
+\begin{itemize}
+\item \textbf{Méthodes basées sur la valeur (value-based)} : Ces méthodes se concentrent sur l'estimation de la récompense cumulative optimale que l'agent peut obtenir. Elles cherchent à obtenir une récompense cumulative maximale.
+\item \textbf{Méthodes basées sur la politique (policy-based)} : Ces méthodes se concentrent sur l'optimisation de la politique de l'agent. Les valeurs de récompense peuvent ne pas être calculées directement.
+\item \textbf{Méthodes acteur-critique (actor-critic)} : Ces méthodes utilisent deux réseaux de neurones. Le premier réseau choisit l'action à effectuer, tandis que le second réseau évalue cette action en la comparant à l'action prévue.
+\end{itemize}
+
 
 
 \section{Voiture}
@@ -110,7 +137,6 @@ L'objectif de l'agent est de maximiser la somme des récompenses qu'il reçoit a
 \section{Simulation}
 
 \subsection{Le simulateur Webots}
-\noindent
 Le logiciel utilisé pour la simulation est Webots R2023b. Webots est un logiciel de simulation de robotique développé 
 par Cyberbotics. Il permet de simuler des robots dans un environnement 3D que l'on peut personnaliser. Dans notre cas,
 nous avons utilisé Webots pour simuler une voiture RC sur un circuit. Nous avons utilisé le langage de programmation
@@ -126,7 +152,6 @@ Python pour contrôler la voiture dans le simulateur.
 Note: Présenter le circuit, la voiture, le lidar, le code Python etc...
 
 \subsection{Le circuit}
-\noindent
 Le circuit dans l'environment de Webots a pour but de simuler un circuit réel sur lequel la voiture autonome doit
 apprendre à conduire. Les murs du circuit sont composés de blocs de couleur différentes pour les bordures extérieur et 
 intérieur du circuit. Ces murs ont une auteur d'une dizaine de centimètres qui permettent au lidar de mesurer la distance
@@ -139,7 +164,6 @@ entre la voiture et les murs.
 \end{figure}
 
 \subsection{La voiture}
-\noindent
 La voiture utilisée dans le simulateur est une voiture RC au format $1/10^{\text{ème}}$. Elle a pour objectif de
 reproduire le plus fidèlement possible une voiture réelle. La voiture est équipée d'un lidar qui permet de mesurer la
 distance entre la voiture et les murs du circuit.
@@ -154,12 +178,12 @@ distance entre la voiture et les murs du circuit.
 
 
 \section{Simulation to real world}
-\noindent
 L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. 
 Une fois le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière 
 autonome sur un circuit réel. Un des principaux défis du SimToReal est de reproduire le plus fidèlement possible les 
 conditions du monde réel dans le simulateur.
 
+\vspace{0.5cm}
 La phase d'entraînement sur simulateur a plusieurs avantages. Tout d'abord, elle permet de réduire le temps et le coût
 de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
 alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
@@ -168,22 +192,19 @@ Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash
 efficace de réaliser l'entraînement sur simulateur.
 
 \section{Introduction du bruit pour améliorer la simulation}
-\noindent
 Pour que la simulation soit la plus proche possible de la réalité, il est crucial d'introduire des éléments de bruit. 
 Ces bruits peuvent affecter les mesures et les actions de la voiture, et ainsi permettre au réseau de neurones de 
 mieux généraliser lors du passage au monde réel.
 
 
 \subsection{Bruit sur les mesures}
-\noindent
-// a modifier nous somme en interrieur il n'uy a pas de vent etc.. mais juste un peut de bruit de mesure
-Dans un environnement réel, les capteurs ne fournissent pas des mesures parfaites. Par exemple, les mesures 
-du Lidar peuvent être affectées par des interférences, des réflexions multiples ou des conditions météorologiques. 
-Pour simuler ces conditions, on peut ajouter du bruit gaussien aux mesures du Lidar. Cela permet au réseau de neurones 
-de s'adapter à des données moins parfaites, similaires à celles qu'il rencontrera dans le monde réel.
+Dans un environnement réel, les capteurs ne fournissent pas des mesures parfaites. Les mesures du Lidar peuvent 
+toujours être affectées par de petites interférences ou des variations mineures. Pour simuler ces conditions, 
+on peut ajouter un léger bruit gaussien aux mesures du Lidar. Cela permet au réseau de neurones de s'adapter 
+à des données moins parfaites, similaires à celles qu'il rencontrera dans le monde réel.
+
 
 \subsection{Bruit sur les actions}
-\noindent
 Les actions de la voiture, telles que l'angle de direction ou la vitesse, peuvent également être sujettes à des 
 variations imprévues. Par exemple, un servomoteur peut ne pas toujours répondre de manière identique à une même 
 commande en raison de l'usure ou des variations de tension. Pour prendre en compte ces imperfections, on peut 
@@ -192,20 +213,16 @@ aux variations qu'il pourrait rencontrer sur une voiture réelle.
 
 
 
-
 \section{Application à la voiture autonome}
-\noindent
 Pour appliquer l'apprentissage par renforcement à une voiture autonome, il est essentiel de définir correctement 
 l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel.
 
 \subsection{Espace d'observation}
-\noindent
 L'espace d'observation doit inclure toutes les informations pertinentes que la voiture peut obtenir de son environnement.
 Dans notre cas, nous utilisons le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
 la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation.
 
 \subsection{Espace d'action}
-\noindent
 L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut l'incrémentation de 
 l'angle de direction via le servomoteur et l'incrémentation de la vitesse via le moteur.
 

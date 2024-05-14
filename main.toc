@@ -6,14 +6,14 @@
 \contentsline {section}{\numberline {2}Voiture}{4}{section.2}%
 \contentsline {section}{\numberline {3}Simulation}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Le simulateur Webots}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Le circuit}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}La voiture}{5}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Le lidar}{6}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Simulation to real world}{6}{section.4}%
-\contentsline {section}{\numberline {5}Introduction du bruit pour améliorer la simulation}{6}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Bruit sur les mesures}{6}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Bruit sur les actions}{6}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Application à la voiture autonome}{6}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Espace d'observation}{6}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Espace d'action}{7}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}%
+\contentsline {subsection}{\numberline {3.2}Le circuit}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}La voiture}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Le lidar}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Simulation to real world}{7}{section.4}%
+\contentsline {section}{\numberline {5}Introduction du bruit pour améliorer la simulation}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Bruit sur les mesures}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Bruit sur les actions}{7}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Application à la voiture autonome}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Espace d'observation}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Espace d'action}{8}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}%
