@@ -167,8 +167,47 @@ la simulation permet de tester des scénarios dangereux pour la voiture réelle 
 Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash dans un mur. Il est donc plus
 efficace de réaliser l'entraînement sur simulateur.
 
+\section{Introduction du bruit pour améliorer la simulation}
+\noindent
+Pour que la simulation soit la plus proche possible de la réalité, il est crucial d'introduire des éléments de bruit. 
+Ces bruits peuvent affecter les mesures et les actions de la voiture, et ainsi permettre au réseau de neurones de 
+mieux généraliser lors du passage au monde réel.
 
 
+\subsection{Bruit sur les mesures}
+\noindent
+// a modifier nous somme en interrieur il n'uy a pas de vent etc.. mais juste un peut de bruit de mesure
+Dans un environnement réel, les capteurs ne fournissent pas des mesures parfaites. Par exemple, les mesures 
+du Lidar peuvent être affectées par des interférences, des réflexions multiples ou des conditions météorologiques. 
+Pour simuler ces conditions, on peut ajouter du bruit gaussien aux mesures du Lidar. Cela permet au réseau de neurones 
+de s'adapter à des données moins parfaites, similaires à celles qu'il rencontrera dans le monde réel.
+
+\subsection{Bruit sur les actions}
+\noindent
+Les actions de la voiture, telles que l'angle de direction ou la vitesse, peuvent également être sujettes à des 
+variations imprévues. Par exemple, un servomoteur peut ne pas toujours répondre de manière identique à une même 
+commande en raison de l'usure ou des variations de tension. Pour prendre en compte ces imperfections, on peut 
+ajouter du bruit aux actions commandées par le réseau de neurones. Cela aide à rendre l'agent plus robuste face 
+aux variations qu'il pourrait rencontrer sur une voiture réelle.
+
+
+
+
+\section{Application à la voiture autonome}
+\noindent
+Pour appliquer l'apprentissage par renforcement à une voiture autonome, il est essentiel de définir correctement 
+l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel.
+
+\subsection{Espace d'observation}
+\noindent
+L'espace d'observation doit inclure toutes les informations pertinentes que la voiture peut obtenir de son environnement.
+Dans notre cas, nous utilisons le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
+la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation.
+
+\subsection{Espace d'action}
+\noindent
+L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut l'incrémentation de 
+l'angle de direction via le servomoteur et l'incrémentation de la vitesse via le moteur.
 
 
 
