@@ -155,10 +155,18 @@ distance entre la voiture et les murs du circuit.
 
 \section{Simulation to real world}
 \noindent
-L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. Une fois 
-le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière autonome sur 
-un circuit réel. Un des principaux défis du SimToReal est de reproduire le plus fidèlement possible les conditions du monde 
-réel dans le simulateur.
+L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. 
+Une fois le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière 
+autonome sur un circuit réel. Un des principaux défis du SimToReal est de reproduire le plus fidèlement possible les 
+conditions du monde réel dans le simulateur.
+
+La phase d'entraînement sur simulateur a plusieurs avantages. Tout d'abord, elle permet de réduire le temps et le coût
+de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
+alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
+la simulation permet de tester des scénarios dangereux pour la voiture réelle sans risquer de l'endommager.
+Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash dans un mur. Il est donc plus
+efficace de réaliser l'entraînement sur simulateur.
+
 
 
 
