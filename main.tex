@@ -131,9 +131,6 @@ Les méthodes d'apprentissage par renforcement peuvent être classées en trois 
 \end{itemize}
 
 
-
-\section{Voiture}
-
 \section{Simulation}
 
 \subsection{Le simulateur Webots}
@@ -226,6 +223,68 @@ la vitesse est en place, la vitesse actuelle de la voiture pourrait également f
 L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut l'incrémentation de 
 l'angle de direction via le servomoteur et l'incrémentation de la vitesse via le moteur.
 
+
+\section{Entraînement du réseau de neurones}
+\subsection{Algorithme d'apprentissage}
+\subsubsection*{Environment Gym}
+La bibliothèque Gym est une bibliothèque implémentée en Python qui permet de gérer la partie apprentissage par 
+renforcement d'un réseau de neurones. Dans le cas de notre projet, Gym ne propose pas d'environnement adapté. 
+Il a donc été nécessaire de créer un tout nouvel environnement. Gym exige qu'un environnement contienne les fonctions 
+suivantes:
+\begin{itemize}
+    \item \textbf{get\_observation()} : fonction renvoyant les observations de l'environnement
+    \item \textbf{get\_reward()} : fonction donnant la récompense selon l'action effectuée par l'agent
+    \item \textbf{reset()} : fonction donnant la démarche pour repartir au début d'un épisode
+    \item \textbf{step()} : fonction faisant évoluer l'environnement
+\end{itemize}
+
+\vspace{0.5cm}
+\noindent
+Toutes ces fonctions sont rassemblées dans une classe que nous avons nommée \texttt{WebotsGymEnvironment}. Dans cette classe, nous avons rajouté quatre fonctions propres à la voiture :
+\begin{itemize}
+\item \textbf{get\_lidar\_mm()} : Fonction qui renvoie un tableau de Lidar dans le bon format avec des valeurs cohérentes en mm.
+\item \textbf{set\_vitesse\_m\_s()} : Fonction qui prend en argument une vitesse en m/s et qui la convertit en km/h avant de l'envoyer à la voiture.
+\item \textbf{set\_direction\_degre()} : Fonction qui prend un angle en degré et le convertit en radian avant de l'envoyer à la voiture.
+\end{itemize}
+\noindent
+Nous allons détailler par la suite chacune des fonctions.
+
+\subsubsection*{get\_observation()}
+\noindent
+Dans la fonction \texttt{get\_observation()}, on appelle la fonction \texttt{get\_lidar\_mm()} pour récupérer 
+les observations du Lidar. Ce tableau sera le tableau donné en entrée du réseau pour les observations du Lidar 
+à "l'instant présent". Pour ce qui est du tableau à "l'instant précédent", on stocke à chaque appel de la 
+fonction le tableau d'observation dans une variable interne de la classe. Si la fonction est appelée depuis 
+la fonction \texttt{reset()}, on donne le même tableau pour les deux parties de l'espace d'observation concernant 
+le Lidar puisque la voiture a été repositionnée. Pour la vitesse et la direction, Webots nous permet de mesurer 
+la vitesse et la direction de la voiture dans le simulateur. Ce sont ces données que l'on donne au réseau de neurones. 
+De même dans le cas où l'observation est demandée par la fonction \texttt{reset()}, on indique que ces deux grandeurs 
+sont nulles. Il est à noter que les valeurs données à l'espace d'observation sont normalisées.
+
+\subsubsection*{get\_reward()}
+\noindent
+Dans la fonction \texttt{get\_reward()}, on donne la récompense associée à l'état dans lequel se trouve la voiture. 
+On distingue deux états possibles pour la voiture. Le premier état est celui d'une situation de collision. 
+On regarde la plus petite valeur du tableau de Lidar actuel et si celui-ci est inférieur à 120 mm, on considère 
+qu'il y a collision. Dans le cas de la collision, on donne un malus de -400 moins la vitesse de la voiture. 
+Le deuxième état regroupe toutes les situations autres que celle de collision. On donne comme récompense ici 
+une valeur dépendant de la vitesse actuelle de la voiture ainsi que la distance minimale donnée par le tableau de Lidar. 
+Les fonctions de récompenses seront détaillées plus tard. On indique aussi ici si l'on a terminé l'épisode via la 
+variable \texttt{done}.
+
+\subsubsection*{reset()}
+\noindent
+Dans la fonction \texttt{reset()}, on indique la démarche à suivre lorsque l'on veut retourner au début d'un épisode. 
+Le reset se fait dans le cas d'un crash de la voiture ou si le nombre d'actions autorisées par épisode est atteint. 
+Au moment du reset, on donne des consignes de vitesse et d'angle nuls et on envoie une indication de reset au robot 
+"Superviseur". À la fin de la routine de réinitialisation, on renvoie une observation.
+
+\subsubsection*{step()}
+\noindent
+Dans la fonction \texttt{step()}, on indique que l'on fait un pas dans le processus d'apprentissage. Dans cette 
+fonction, on fait avancer la voiture avec les actions récupérées depuis le réseau de neurones. Ensuite, on récupère 
+une observation depuis le Lidar et on fait faire un pas au processus d'apprentissage. On calcule la récompense 
+avant de retourner toutes les informations obtenues.
 
 
 \section{Conclusion}
