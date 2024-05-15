@@ -393,7 +393,7 @@ aux variations qu'il pourrait rencontrer sur une voiture réelle. Ainsi lorsque 
 
 \vspace{0.5cm}
 
-Les l'espace de commande que l'on obtient en sortie du réseau de neuronnes est un angle de direction et une vitesse. Il y a donc deux champs auxquels on peut ajouter du bruit à chaque itération :
+Les l'espace de commande que l'on obtient en sortie du réseau de neurones est un angle de direction et une vitesse. Il y a donc deux champs auxquels on peut ajouter du bruit à chaque itération :
 \begin{itemize}
     \item La commande de vitesse
     \item La commande d'angle
@@ -401,7 +401,7 @@ Les l'espace de commande que l'on obtient en sortie du réseau de neuronnes est 
 
 Ce bruit peut être ajouté dans les fonctions \verb|set_vitesse_m_s| et \verb|set_direction_degre| du fichier \verb|TT02_controller_RL.py|. 
 
-Ainsi à chaque commande en sortie du réseau de neuronne, la voiture ne répondra pas exactement comme attendu mais répondra à une consigne bruitée. \vspace{0.5cm}
+Ainsi à chaque commande en sortie du réseau de neurone, la voiture ne répondra pas exactement comme attendu mais répondra à une consigne bruitée. \vspace{0.5cm}
 
 Ce type de bruit n'a pas été implémenté. Pour notre étude nous avons préféré nous concentrer sur l'ajout d'aléatoire sur les commandes de la voiture mais non pas à chaque timesteps (cad à chaque nouvelle commande est associé un bruit aléatoire) mais à chaque réinitialisation de la voiture. Cette approche est explicitée dans la sous-section \ref{subsec:random}
 
@@ -410,10 +410,9 @@ Ce type de bruit n'a pas été implémenté. Pour notre étude nous avons préf�
 \label{subsec:random}
 
 Nous avons implémenté un système de randomisation des directions et des vitesses pour améliorer la robustesse du modèle. A chaque réinitialisation de la voiture, un biais aléatoire est ajouté à la commande de direction et de vitesse. 
+L'aléatoire peut être activé ou désactivé via la variable \verb|self.add_randomness| dans le fichier \verb|TT02_controller_RL.py|.
 
-L'alétoire peut être activé ou désactivé via la variable \verb|self.add_randomness| dans le fichier \verb|TT02_controller_RL.py|.
-
-\subsubsubsection{Randomisation des directions}
+\subsubsection{Randomisation des directions}
 
 Commençons par décrire comment nous avons modélisé la réponse de la voiture à une consigne d'angle.
 
@@ -491,19 +490,18 @@ L'ajout d'obstacles peut être désactivée via la variable \verb|self.add_obsta
 
 \subsection{Position de départ aléatoires}
 
-Tout comme pour les obstacles aléatoires, la voiture démarre à une position aléatoire sur le circuit à chaque réinitialisation. La position de départ est choisie aléatoirement parmis une liste de positions prédéfinies. On ajoute de plus un angle de départ aléatoire pour que la voiture ne démarre pas toujours dans la même direction.
+Tout comme pour les obstacles aléatoires, la voiture démarre à une position aléatoire sur le circuit à chaque réinitialisation. La position de départ est choisie aléatoirement parmi une liste de positions prédéfinies. On ajoute de plus un angle de départ aléatoire pour que la voiture ne démarre pas toujours dans la même direction.
 
 
 \subsection{Résultats}
-
-Des entrainements avec l'ajout d'aléatoire ont été lancés. Lorsque les paramètres \verb|max_random_dir_bias|, \verb|max_random_speed_prop|, \verb|max_random_speed_bias| et le nombre d'obstacles ne sont pas trop élevés, la voiture est capable de conduire correctement et de faire des tours de circuit.
+Des entraînements avec l'ajout d'aléatoire ont été lancés. Lorsque les paramètres \verb|max_random_dir_bias|, \verb|max_random_speed_prop|, \verb|max_random_speed_bias| et le nombre d'obstacles ne sont pas trop élevés, la voiture est capable de conduire correctement et de faire des tours de circuit.
 
 \vspace{0.5cm}
 
 Le modèle obtenu est donc en théorie beaucoup plus robuste que précédemment pour des performances similaires. Cependant après des tests sur la voiture réelle, il s'avère que le modèle ne performe pas mieux que celui obtenu avant l'ajout d'aléatoire. 
 \vspace{0.5cm}
 
-Nous expliquons ce résultat par par un manque d'optimisation du code de la voiture réelle. L'élément limitant les performances de la voiture réelle n'est pas le modèle entrainé sur simulateur mais la façon dont ce modèle est utilisé sur la voiture réelle\footnote{les voitures utilisant le RL les plus performantes lors de la courses sont celles qui ont beaucoup travaillé sur le code voiture} via le code \verb|programme_course.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}. Il semble donc que travailler sur le code de la voiture réelle soit plus pertinent que de continuer d'essayer d'améliorer le modèle.
+Nous expliquons ce résultat par par un manque d'optimisation du code de la voiture réelle. L'élément limitant les performances de la voiture réelle n'est pas le modèle entraîné sur simulateur mais la façon dont ce modèle est utilisé sur la voiture réelle\footnote{les voitures utilisant le RL les plus performantes lors de la courses sont celles qui ont beaucoup travaillé sur le code voiture} via le code \verb|programme_course.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}. Il semble donc que travailler sur le code de la voiture réelle soit plus pertinent que de continuer d'essayer d'améliorer le modèle.
 
 \subsection{Améliorations possibles}
 
@@ -511,7 +509,7 @@ nous conseillons en premier lieu de travailler sur le code de la voiture réelle
 
 \vspace{1cm}
 
-Un entrainement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entrainement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
+Un entraînement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entraînement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
 
 \vspace{0.5cm}
 
@@ -519,7 +517,7 @@ Pour les voitures travaillant avec la vision, les images issues de la simulation
 
 \vspace{0.5cm}
 
-Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteu r phyique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
+Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteur physique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
 
 
 
