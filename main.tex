@@ -203,7 +203,46 @@ distance entre la voiture et les murs du circuit à 360 degrés avec une résolu
 
 \subsection{Les secteurs}
 
-Afin de pouvoir comparer différentes fonctions de récompense et mesurer la performance de la voiture il est possible de mesurer le temps au tour de la voiture (à condition qu'elle finisse un tour complet)
+Afin de pouvoir comparer différentes fonctions de récompense et mesurer la performance de la voiture il est possible de mesurer le temps au tour de la voiture (à condition qu'elle finisse un tour complet). Plus de précision sont données dans la section \ref{subsec:reward} Comme la voiture met un certain temps à apprendre à conduire et qu'elle ne termine un tour qu'au bout d'un certain temps, il est intéressant de diviser le circuit en secteurs. Les différentes portions du circuit sont représenté sur la figure \ref{fig:secteurs}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/sector_lines_map.png}
+    \caption{Capture d'écran des secteurs}
+    \label{fig:secteurs}
+\end{figure}
+
+Afin de calculer les temps, on doit pouvoir accéder à la position de la voiture. Or la position n'est accessible qu'au superviseur webots. Pourtant nous avons besoin de cette information dans le controller de la voiture (\verb|TT02_RL_controller.py|) car c'est là qu'est défini la fonction reward et nous souhaitons pouvoir utiliser ces informations de temps au tours/secteurs pour calculer une récompense.
+\vspace{0.5cm}
+
+Webots ne permet pas de définir des variables globales ou d'importer des variables définies dans d'autres fichiers dans un soucis de modélisation : dans le monde réel la voiture ne peut pas accéder à sa position si elle n'a pas les capteurs nécessaires. Pour contourner ce problème, nous avons ajouter au controller ansi qu'à la voiture (qui sont tous deux des objets \verb|robots| dans Webots) des émetteurs/receiver. \vspace{0.5cm}
+
+Ainsi on indique à la simulation que notre voiture est munie d'un capteur radio capable de recevoir des informations du controller, notamment ses temps au tours. Ces récepteurs sont nommés \verb|LapEmitter| et \verb|LapReceiver| dans les codes \verb|supervisor_controller.py| et \verb|TT02_RL_controller.py| disponibles \href{https://github.com/basileplus/RCAutonomousCar.git}{ici} dans le dossier \verb|simulatedCar/webotsWorld/controllers|.
+
+\vspace{0.5cm}
+
+La même mécanique est utilisée pour que la réinitialisation lors d'un crash : le superviseur a besoin des données lidar pour savoir si la voiture a crashé. Ces données sont envoyées par la voiture au superviseur via un émetteur/recepteur nommé \verb|resetEmitter| et \verb|resetReceiver|.
+
+\vspace{0.5cm}
+
+Les performances de la voiture (temps au tour,secteur etc.) sont directement affichable dans tensorboard (figure \ref{fig:tensorboard}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/tensorboard.png}
+    \caption{Capture d'écran de tensorboard}
+    \label{fig:tensorboard}
+\end{figure}
+
+Pour ouvrir tensorboard il suffit de :
+\begin{itemize}
+    \item ouvrir une invite de commande depuis le dossier controller TT02
+    \item Executer la commande suivante :
+    \begin{minted}{bash}
+    python3 -m tensorboard.main --logdir PPO_Tensorboard/
+    \end{minted}
+    \item Récupérer l'adresse https donnée par la console et la coller dans un navigateur
+\end{itemize}
 
 
 \section{Simulation to real world}
@@ -464,11 +503,15 @@ Pour la vitesse, nous avons choisi de modéliser la réponse de la voiture à un
 \end{equation}
 
 \begin{itemize}
-    \item \(v_{\mathrm{out}}\) : La vitesse résultante après transformation.
-    \item \(v_{\mathrm{in}}\) : La vitesse initiale avant transformation.
-    \item \(k\) : La proportionnalité aléatoire appliquée à la vitesse initiale.
-    \item \(b\) : Le biais aléatoire ajouté à la vitesse résultante.
+    \item \(v_{\mathrm{out}}\) : La vitesse réellement demandé à la voiture par le simulateur.
+    \item \(v_{\mathrm{in}}\) : La consigne de vitesse.
+    \item \(k\) : Facteur de proportionnalité.
+    \item \(b\) : Le biais ajouté à la vitesse.
 \end{itemize}
+
+\paragraph{Ajout d'aléatoire}
+
+Ici aussi, à chaque replacement de la voiture, on initialise aléatoirement le paramètre \verb|self.random_speed_bias| qui représente $b$ ainsi que le paramètre \verb|self.random_speed_prop| qui représente $k$.
 
 \subsection{Ajout d'obstacles aléatoires}
 
@@ -607,6 +650,8 @@ De même dans le cas où l'observation est demandée par la fonction \texttt{res
 sont nulles. Il est à noter que les valeurs données à l'espace d'observation sont normalisées.
 
 \subsubsection*{get\_reward()}
+
+\label{subsec:reward}
 Dans la fonction \texttt{get\_reward()}, on donne la récompense associée à l'état dans lequel se trouve la voiture. 
 On distingue deux états possibles pour la voiture. Le premier état est celui d'une situation de collision. 
 On regarde la plus petite valeur du tableau de Lidar actuel et si celui-ci est inférieur à 120 mm, on considère 
