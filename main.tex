@@ -13,6 +13,12 @@
 \usepackage{fullpage} % for fullpage
 \usepackage{babel} % for french
 \usepackage[T1]{fontenc} % for french
+\usepackage{minted} % for code
+\usepackage{xcolor} % to access the named colour LightGray
+
+
+\definecolor{LightGray}{gray}{0.9}
+
 \usepackage[backend=biber,style=numeric]{biblatex}
 
 \addbibresource{references.bib}
@@ -378,7 +384,6 @@ suivantes:
 \end{itemize}
 
 \vspace{0.5cm}
-\noindent
 Toutes ces fonctions sont rassemblées dans une classe que nous avons nommée \texttt{WebotsGymEnvironment}. Dans cette classe, nous avons rajouté quatre fonctions propres à la voiture :
 \begin{itemize}
 \item \textbf{get\_lidar\_mm()} : Fonction qui renvoie un tableau de Lidar dans le bon format avec des valeurs cohérentes en mm.
@@ -389,7 +394,6 @@ Toutes ces fonctions sont rassemblées dans une classe que nous avons nommée \t
 Nous allons détailler par la suite chacune des fonctions.
 
 \subsubsection*{get\_observation()}
-\noindent
 Dans la fonction \texttt{get\_observation()}, on appelle la fonction \texttt{get\_lidar\_mm()} pour récupérer 
 les observations du Lidar. Ce tableau sera le tableau donné en entrée du réseau pour les observations du Lidar 
 à "l'instant présent". Pour ce qui est du tableau à "l'instant précédent", on stocke à chaque appel de la 
@@ -401,7 +405,6 @@ De même dans le cas où l'observation est demandée par la fonction \texttt{res
 sont nulles. Il est à noter que les valeurs données à l'espace d'observation sont normalisées.
 
 \subsubsection*{get\_reward()}
-\noindent
 Dans la fonction \texttt{get\_reward()}, on donne la récompense associée à l'état dans lequel se trouve la voiture. 
 On distingue deux états possibles pour la voiture. Le premier état est celui d'une situation de collision. 
 On regarde la plus petite valeur du tableau de Lidar actuel et si celui-ci est inférieur à 120 mm, on considère 
@@ -412,25 +415,116 @@ Les fonctions de récompenses seront détaillées plus tard. On indique aussi ic
 variable \texttt{done}.
 
 \subsubsection*{reset()}
-\noindent
 Dans la fonction \texttt{reset()}, on indique la démarche à suivre lorsque l'on veut retourner au début d'un épisode. 
 Le reset se fait dans le cas d'un crash de la voiture ou si le nombre d'actions autorisées par épisode est atteint. 
 Au moment du reset, on donne des consignes de vitesse et d'angle nuls et on envoie une indication de reset au robot 
 "Superviseur". À la fin de la routine de réinitialisation, on renvoie une observation.
 
 \subsubsection*{step()}
-\noindent
 Dans la fonction \texttt{step()}, on indique que l'on fait un pas dans le processus d'apprentissage. Dans cette 
 fonction, on fait avancer la voiture avec les actions récupérées depuis le réseau de neurones. Ensuite, on récupère 
 une observation depuis le Lidar et on fait faire un pas au processus d'apprentissage. On calcule la récompense 
 avant de retourner toutes les informations obtenues.
+
+\subsection{Réseau de neurones avec Stable-Baselines3}
+La librairie Stable-Baselines3 permet de créer un réseau de neurones géré par l'algorithmes d'apprentissage 
+par renforcement PPO (Proximal Policy Optimization). Stable-Baselines3 propose un large choix de paramètres pour 
+l'apprentissage. Voici un descriptif des paramètres utilisés ainsi que leurs valeurs définies dans notre programme:
+\begin{itemize}
+    \item \textbf{policy} : Type de politique utilisée. Dans notre cas, nous utilisons 'MultiInputPolicy' 
+    pour gérer les multiples entrées.
+    \item \textbf{env} : Environnement d'apprentissage Gym.
+    \item \textbf{learning\_rate} : Taux d'apprentissage fixé à $5 \cdot 10^{-4}$.
+    \item \textbf{n\_steps} : Nombre d'actions autorisées par épisode (2048).
+    \item \textbf{batch\_size} : Taille du lot de données pour chaque mise à jour (64).
+    \item \textbf{n\_epochs} : Nombre d'époques d'entraînement par itération de \texttt{n\_steps} (10). 
+    \item \textbf{gamma} : Facteur de discount pour la récompense future (0.99).
+    \item \textbf{gae\_lambda} : Facteur pour le calcul de l'estimateur de l'avantage généralisé (0.95).
+    \item \textbf{clip\_range} : Valeur de clipping pour PPO (0.2).
+    \item \textbf{vf\_coef} : Coefficient de la fonction de perte de la valeur (1).
+    \item \textbf{ent\_coef} : Coefficient d'entropie pour la fonction de perte (0.01).
+    \item \textbf{device} : Composant sur lequel faire tourner l'algorithme (dans notre cas, 'cuda:0' pour l'utilisation du GPU).
+    \item \textbf{tensorboard\_log} : Emplacement pour enregistrer les données de Tensorboard ('./PPO\_Tensorboard').
+\end{itemize}
+Voici un extrait de notre code de définition de modèle :
+\begin{minted}[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    bgcolor=LightGray,
+    fontsize=\footnotesize,
+    linenos
+]
+{python}
+# Définition du modèle
+model = PPO(
+    policy="MultiInputPolicy",
+    env=env,
+    learning_rate=5e-4,
+    verbose=1,
+    device='cuda:0',
+    tensorboard_log='./PPO_Tensorboard',
+    # Paramètres additionnels
+    n_steps=2048,
+    batch_size=64,
+    n_epochs=10,
+    gamma=0.99,
+    gae_lambda=0.95,
+    clip_range=0.2,
+    vf_coef=1,
+    ent_coef=0.01
+)
+\end{minted}
+
+Nous pouvons ensuite entraîner le modèle avec la fonction \texttt{model.learn()}. Cette fonction prend en argument
+le nombre d'itérations d'entraînement. Une fois l'entraînement terminé, nous pouvons sauvegarder le modèle avec
+la fonction \texttt{model.save()}.Nous pouvons dans un second temps charger le modèle avec la fonction 
+\texttt{model.load()} ce qui nous permet, par exemple de reentrainer le modèle avec de nouveau paramètres ou avec 
+une nouvelle fonction de récompense. Nous pouvons également visualiser les données d'entraînement avec Tensorboard
+en exécutant la commande \texttt{tensorboard --logdir ./PPO\_Tensorboard}.
+
+
+\subsection{Fonction de récompense}
+La fonction de récompense est un élément crucial de l'apprentissage par renforcement. Elle permet de guider
+l'agent vers les actions qui maximisent la récompense. C'est un élément délicat à définir car une mauvaise
+fonction de récompense peut entraîner des comportements indésirables de l'agent. En effet si l'on ne prend pas 
+assez en compte le crash de la voiture, l'agent pourrait apprendre à foncer dans les murs pour maximiser la vitesse.
+Si l'on ne prend pas en compte la vitesse, l'agent pourrait apprendre à rester immobile pour éviter les collisions et
+rester éloigné des murs. Il est donc important de trouver un équilibre entre ces aspects. 
+
+\vspace{0.5cm}
+Dans notre cas, nous avons défini une fonction de récompense qui prend en compte la vitesse de la voiture et la distance
+minimale donnée par le Lidar. La récompense est définie comme suit:
+
+\begin{equation}
+    \text{reward} = \begin{cases}
+        -400 - 10 * \text{vitesse} & \text{si collision} \\
+        18 * (\text{mini} - 0.018) + 2 * \text{vitesse} & \text{sinon}
+    \end{cases}
+\end{equation}
+
+Où $\text{mini}$ est la distance minimale donnée par le Lidar et $\text{vitesse}$ est la vitesse de la voiture.
+La récompense est négative en cas de collision et dépend de la vitesse de la voiture. Cela permet de fortement pénaliser
+les collisions à haute vitesse. Dans le cas où il n'y a pas de collision, la récompense dépend de la distance minimale
+donnée par le Lidar et de la vitesse de la voiture. Cela permet de favoriser les actions qui permettent à la voiture
+de rouler vite tout en restant loin des murs pour éviter les collisions.
+
+\vspace{0.5cm}
+Nous avons également essayé de prendre en compte le temps de passage au tour. Pour cela, nous avons adapté le 
+superviseur afin de détecter les passages sur la ligne d'arrivée et de notifier la fonction de récompense pour 
+donner une récompense positive lors d'un passage sur la ligne d'arrivée. Plus le temps au tour est court, plus 
+la récompense est élevée. Cela permet de former la voiture à vraiment aller vite et à réaliser un temps au tour 
+le plus rapide possible. Cette approche encourage l'agent à optimiser non seulement la vitesse et la sécurité, 
+mais aussi l'efficacité globale de ses déplacements sur le circuit.
+
+
 
 
 \section{Conclusion}
 
 Note:
 Il faut ajouter la partie ou on ameliore la simulation webot avec les obstacles, basile l'a fait.
-Il faut details Stable-baselines et expliquer les hypeparametres qu'on a utilisé.
+Il faut details Stable-baselines et expliquer les hyperparameter qu'on a utilisé.
 policy, env, gamma, batch size, n\_epochs, n\_steps, ent\_coef, learning\_starts, tensorboard\_log, verbose, 
 n\_cpu\_tf\_sess, n\_timesteps etc\dots
 
