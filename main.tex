@@ -369,7 +369,39 @@ en exécutant la commande \texttt{tensorboard --logdir ./PPO\_Tensorboard}.
 
 
 \subsection{Fonction de récompense}
-  
+La fonction de récompense est un élément crucial de l'apprentissage par renforcement. Elle permet de guider
+l'agent vers les actions qui maximisent la récompense. C'est un élément délicat à définir car une mauvaise
+fonction de récompense peut entraîner des comportements indésirables de l'agent. En effet si l'on ne prend pas 
+assez en compte le crash de la voiture, l'agent pourrait apprendre à foncer dans les murs pour maximiser la vitesse.
+Si l'on ne prend pas en compte la vitesse, l'agent pourrait apprendre à rester immobile pour éviter les collisions et
+rester éloigné des murs. Il est donc important de trouver un équilibre entre ces aspects. 
+
+\vspace{0.5cm}
+Dans notre cas, nous avons défini une fonction de récompense qui prend en compte la vitesse de la voiture et la distance
+minimale donnée par le Lidar. La récompense est définie comme suit:
+
+\begin{equation}
+    \text{reward} = \begin{cases}
+        -400 - 10 * \text{vitesse} & \text{si collision} \\
+        18 * (\text{mini} - 0.018) + 2 * \text{vitesse} & \text{sinon}
+    \end{cases}
+\end{equation}
+
+Où $\text{mini}$ est la distance minimale donnée par le Lidar et $\text{vitesse}$ est la vitesse de la voiture.
+La récompense est négative en cas de collision et dépend de la vitesse de la voiture. Cela permet de fortement pénaliser
+les collisions à haute vitesse. Dans le cas où il n'y a pas de collision, la récompense dépend de la distance minimale
+donnée par le Lidar et de la vitesse de la voiture. Cela permet de favoriser les actions qui permettent à la voiture
+de rouler vite tout en restant loin des murs pour éviter les collisions.
+
+\vspace{0.5cm}
+Nous avons également essayé de prendre en compte le temps de passage au tour. Pour cela, nous avons adapté le 
+superviseur afin de détecter les passages sur la ligne d'arrivée et de notifier la fonction de récompense pour 
+donner une récompense positive lors d'un passage sur la ligne d'arrivée. Plus le temps au tour est court, plus 
+la récompense est élevée. Cela permet de former la voiture à vraiment aller vite et à réaliser un temps au tour 
+le plus rapide possible. Cette approche encourage l'agent à optimiser non seulement la vitesse et la sécurité, 
+mais aussi l'efficacité globale de ses déplacements sur le circuit.
+
+
 
 
 \section{Conclusion}
