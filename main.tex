@@ -456,28 +456,56 @@ telles que reculer en cas de détection d'obstacle.
 
 \subsection{Résultats}
 
+Dans un premier temps nous avons testé la voiture avec un des réseau de neurones qui nous semblait le plus performant.
+Dans un premier temps nous faisons tourner la voiture seul sur un circuit sans obstacles, c'est la phase de 
+qualification. La voiture est évaluée sur le temps qu'elle met pour faire deux tours du circuit. Notre voiture a
+réalisé un temps de 30,22 secondes à la première manche de la qualification. La deuxième phase de la qualification
+consiste à faire tourner la voiture sur un circuit avec des obstacles. Notre voiture n'a pas réussi à terminer le
+circuit et a été arrêtée par un obstacle, le temps retenue a été de 90 secondes. La voiture a donc réalisé un temps
+total de 120,22 secondes la plaçant en $11^{eme}$ position de la qualification.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/2_EssaisLibresEtQualifications_48.JPG}
+    \caption{Piste de qualification avec obstacles}
+\end{figure}
+
+Suite à cela, toutes les voitures sont mises en piste pour une course de 5 tours. Notre voiture a terminé en première 
+position de la manche 2 de la course.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Images/4_Courses_29.JPG}
     \caption{Piste de course}
 \end{figure}
+
+Une observation faites lors de la course est que la voiture se déplace en "zigzag" sur les lignes droites. Ce 
+comportement était déjà present sur le simulateur mais moins prononcé. Ce problème est probablement dû à un manque
+de précision dans le modèle de la simulation sur le simulateur. Un des paramètres de la voiture dans le simulateur
+est le couple maximale du servomoteur de la direction. Ce paramètre est fixé dans la simulation Webots à une valeur
+beaucoup trop élevée par rapport à la réalité. Cependant, baissé ce paramètre dans la simulation Webots a pour
+conséquence de complètement casser la simulation, la voiture n'avance plus sur le simulateur. C'est un problème 
+à résoudre pour améliorer la simulation.
+
+\vspace{0.5cm}
+Un autre point qui pourrait améliorer les déplacements en "zigzag" de la voiture est d'ajouter un terme pénalisant 
+le fait de changer de direction dans la fonction de récompense. Cela permettrait potentiellement d'encourager la 
+voiture à rester dans la même direction lorsqu'elle est sur une ligne droite. C'est une piste d'amélioration pour 
+la suite du projet.
+
+
     
 
 
 
 \section{Conclusion}
 
+
+
+
+
 Note:
-Il faut ajouter la partie ou on ameliore la simulation webot avec les obstacles, basile l'a fait.
-Il faut details Stable-baselines et expliquer les hyperparameter qu'on a utilisé.
-policy, env, gamma, batch size, n\_epochs, n\_steps, ent\_coef, learning\_starts, tensorboard\_log, verbose, 
-n\_cpu\_tf\_sess, n\_timesteps etc\dots
-
-decrir le deroulement de la simulation, les problemes, presenter les graphs
-de PPO (tres jolie graph d'entrainempent)
-
-presenter le temps au tour comme critere de performance
+Il faut ajouter la partie ou on améliore la simulation Webots avec les obstacles, Basile l'a fait.
 
 
 
