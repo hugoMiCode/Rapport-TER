@@ -94,10 +94,6 @@ avons utilisé Webots pour la simulation, gym et stable baselines pour l'apprent
 Dans un second temps, nous avons transféré le réseau de neurones du simulateur à la voiture réelle.
 La voiture est équipée d'un lidar qui permet de mesurer la distance entre la voiture et les murs du circuit.
 
-\vspace{0.5cm}
-\noindent
-Note: Presenter Webots, la voiture réelle, la voiture sur simulateur, le lidar, le circuit etc...
-
 
 \subsection{L'apprentissage par renforcement}
 L'apprentissage par renforcement est une méthode d'apprentissage automatique qui permet à un agent 
@@ -154,8 +150,6 @@ Python pour contrôler la voiture dans le simulateur.
     \caption{Capture d'écran de Webots}
 \end{figure}
 
-\noindent
-Note: Présenter le circuit, la voiture, le lidar, le code Python etc...
 
 \subsection{Le circuit}
 Le circuit dans l'environment de Webots a pour but de simuler un circuit réel sur lequel la voiture autonome doit
@@ -172,15 +166,13 @@ entre la voiture et les murs.
 \subsection{La voiture}
 La voiture utilisée dans le simulateur est une voiture RC au format $1/10^{\text{ème}}$. Elle a pour objectif de
 reproduire le plus fidèlement possible une voiture réelle. La voiture est équipée d'un lidar qui permet de mesurer la
-distance entre la voiture et les murs du circuit.
+distance entre la voiture et les murs du circuit à 360 degrés avec une résolution de 1 degré.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{Images/Voiture.png}
     \caption{Capture d'écran de la voiture}
 \end{figure}
-
-\subsection{Le lidar}
 
 
 \section{Simulation to real world}
@@ -189,18 +181,19 @@ distance entre la voiture et les murs du circuit.
 
 L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. 
 Une fois le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière 
-autonome sur un circuit réel. Un des principaux défis du SimToReal est d'éviter d'avoir une voiture dont les performances sont bonnes sur simulateur mais mauvaises sur la voiture réelle.
+autonome sur un circuit réel. Un des principaux défis du SimToReal est d'éviter d'avoir une voiture dont les performances 
+sont bonnes sur simulateur mais mauvaises sur la voiture réelle.
 
 
 \vspace{0.5cm}
-L'entrainement sur simulateur a beaucoup avantages. Tout d'abord, elle permet de réduire le temps et le coût
+L'entraînement sur simulateur a beaucoup d'avantages. Tout d'abord, il permet de réduire le temps et le coût
 de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
 alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
-la simulation permet de tester des scénarios dangereux pour la voiture réelle sans risquer de l'endommager.
+la simulation permet de tester des scénarios dangereux pour la voiture sans risquer de l'endommager.
 Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash dans un mur. Il est donc plus
 efficace de réaliser l'entraînement sur simulateur.
 
-\subsection{Amélioration de la resssemblance entre le simulateur et le monde réel}
+\subsection{Amélioration de la ressemblance entre le simulateur et le monde réel}
 
 \subsubsection{Amélioration de la simulation}
 
@@ -316,11 +309,11 @@ Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| di
 
 \vspace*{0.5cm}
 
-Pour ces raisons un entraînement dur simulateur est inévitable. 
+Pour ces raisons un entraînement sur simulateur est inévitable. 
 
 \subsection{Améliorations possibles}
 
-Un entraînement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l’entraînement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
+Un entraînement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entraînement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
 
 \vspace{0.5cm}
 
@@ -362,17 +355,28 @@ La modélisation du bruit retenue pour l'angle de direction découle de l'observ
 
 
 \section{Application à la voiture autonome}
-Pour appliquer l'apprentissage par renforcement à une voiture autonome, il est essentiel de définir correctement 
-l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel.
+Pour appliquer l'apprentissage par renforcement à une voiture autonome, nous devons définir correctement 
+l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel. En effet, 
+tout ce qui est possible dans un simulateur n'est pas forcément réalisable dans le monde réel. 
+
+\subsection{Espace d'action}
+L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut:
+\begin{itemize}
+    \item La vitesse de la voiture
+    \item L'angle de direction de la voiture
+\end{itemize}
+Dans notre cas, les actions seront le fait d'augmenter ou de diminuer les consignes de vitesse et d'angle de direction.
+
 
 \subsection{Espace d'observation}
 L'espace d'observation doit inclure toutes les informations pertinentes que la voiture peut obtenir de son environnement.
-Dans notre cas, nous utilisons le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
-la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation.
+Dans notre cas, le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
+la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation. 
 
-\subsection{Espace d'action}
-L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut l'incrémentation de 
-l'angle de direction via le servomoteur et l'incrémentation de la vitesse via le moteur.
+\vspace{0.5cm}
+Dans notre cas nous avons donné les données du lidar à l'instant présent et à l'instant précédent, cela permet
+de donner une information sur la vitesse de la voiture et une certaine inertie à la voiture. Nous avons également
+les ancienne consignes de vitesse et d'angle de direction pour donner une information sur la dynamique de la voiture.
 
 
 \section{Entraînement du réseau de neurones}
