@@ -17,18 +17,25 @@
 \contentsline {paragraph}{Batterie}{8}{section*.8}%
 \contentsline {paragraph}{Moteur de direction}{8}{section*.10}%
 \contentsline {paragraph}{Moteur de propulsion}{9}{section*.12}%
-\contentsline {subsection}{\numberline {3.3}Améliorations possibles}{9}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Introduction du bruit pour améliorer la simulation}{9}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Bruit sur les mesures}{9}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Bruit sur les actions}{10}{subsubsection.3.4.2}%
-\contentsline {paragraph}{Bruit sur l'angle de direction}{10}{section*.14}%
-\contentsline {section}{\numberline {4}Application à la voiture autonome}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Espace d'observation}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Espace d'action}{10}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Entraînement du réseau de neurones}{10}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Algorithme d'apprentissage}{10}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Réseau de neurones avec Stable-Baselines3}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Fonction de récompense}{14}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Mise en place de la simulation}{14}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Résultats}{15}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Conclusion}{17}{section.6}%
+\contentsline {subsection}{\numberline {3.3}Ajout de bruit}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Bruit sur les mesures}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Bruit sur les actions}{10}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Ajout d'aléatoire}{10}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Randomisation des directions}{10}{subsubsection.3.4.1}%
+\contentsline {paragraph}{Modélisation}{10}{section*.14}%
+\contentsline {paragraph}{Ajout d'aléatoire}{11}{section*.16}%
+\contentsline {subsection}{\numberline {3.5}Randomisation des vitesses}{11}{subsection.3.5}%
+\contentsline {paragraph}{Modélisation}{11}{section*.17}%
+\contentsline {subsection}{\numberline {3.6}Ajout d'obstacles aléatoires}{11}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Résultats}{12}{subsubsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.7}Améliorations possibles}{12}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Application à la voiture autonome}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Espace d'observation}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Espace d'action}{13}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Entraînement du réseau de neurones}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Algorithme d'apprentissage}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Réseau de neurones avec Stable-Baselines3}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Fonction de récompense}{17}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Mise en place de la simulation}{17}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Résultats}{18}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Conclusion}{20}{section.6}%
