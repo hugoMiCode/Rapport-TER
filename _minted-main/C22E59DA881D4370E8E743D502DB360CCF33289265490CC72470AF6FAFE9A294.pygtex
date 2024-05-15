@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{env} \PYG{o}{=} \PYG{n}{WebotsGymEnvironment}\PYG{p}{()}
+\PYG{n}{check\PYGZus{}env}\PYG{p}{(}\PYG{n}{env}\PYG{p}{)}
+\end{Verbatim}

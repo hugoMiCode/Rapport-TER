@@ -402,6 +402,34 @@ le plus rapide possible. Cette approche encourage l'agent à optimiser non seule
 mais aussi l'efficacité globale de ses déplacements sur le circuit.
 
 
+\subsection{Mise en place de la simulation}
+Après avoir défini l'environnement Gym, le réseau de neurones et la fonction de récompense, nous pouvons lancer
+l'entraînement de la voiture autonome.
+
+\subsubsection*{Entraînement}
+La première étape consiste à déclarer l'environnement Gym et à vérifier que celui-ci est correctement défini avec 
+la fonction \texttt{check\_env()}:
+
+\begin{minted}[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    bgcolor=LightGray,
+    fontsize=\footnotesize,
+    linenos
+]{python}
+env = WebotsGymEnvironment()
+check_env(env)
+\end{minted}
+
+Après cela, nous pouvons définir le modèle et lancer l'entraînement avec la fonction \texttt{model.learn()}. Nous 
+donnons en argument \texttt{total\_timesteps} qui correspond au nombre total d'itérations d'entraînement. Nous 
+pouvons ensuite sauvegarder le modèle avec la fonction \texttt{model.save()} qui prend en argument le nom du fichier
+de sauvegarde.
+
+
+
+
 
 
 \section{Conclusion}

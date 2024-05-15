@@ -386,6 +386,11 @@ INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
 INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
 INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex\latex\base\ts1cmtt.fd
 INPUT C:\Users\Hugo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tctt0800.tfm
+OUTPUT main.pyg
+INPUT .\main.pyg
+INPUT .\_minted-main\C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex
+INPUT .\_minted-main\C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex
+INPUT _minted-main\C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
