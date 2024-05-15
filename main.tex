@@ -244,15 +244,18 @@ Le niveau de la \textbf{batterie} influence aussi beaucoup la réactivité des m
 
 Nous avons identifié les performances suivantes :
 
-\begin{tabular}{|c|c|}
-    \hline
-    \text{Batterie vide} & 0.8 m/s en imposant 1 m/s \\
-    \hline
-    \text{Batterie pleine} & 2.3 m/s en imposant 1 m/s \\
-    \hline
-    \text{Vitesse max batterie pleine} & 10 m/s \\
-    \hline
-\end{tabular}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \text{Batterie vide} & 0.8 m/s en imposant 1 m/s \\
+        \hline
+        \text{Batterie pleine} & 2.3 m/s en imposant 1 m/s \\
+        \hline
+        \text{Vitesse max batterie pleine} & 10 m/s \\
+        \hline
+    \end{tabular}
+\end{table}
 
 \paragraph{Moteur de direction}
 
@@ -265,17 +268,22 @@ Les \textbf{angles de braquage} peuvent être étudiés sur la voiture réelle. 
 Selon le système de direction utilisé les angles de braquage limites ne sont pas les mêmes. Pour \verb|voitureBasile| les angles sont de -18° et 18°. 
 
 Les paramètres identifiés sont :
-\begin{tabular}{|c|c|}
-    \hline
-    \text{Angle souhaité} & \text{Commande moteur} \\
-    \hline
-    \text{-18° (butée gauche)} & 300 \\
-    \hline
-    \text{0° (milieu)} & 460 \\
-    \hline
-    \text{18° (butée droite)} & 570 \\
-    \hline
-\end{tabular}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \text{Angle souhaité} & \text{Commande moteur} \\
+        \hline
+        \text{-18° (butée gauche)} & 300 \\
+        \hline
+        \text{0° (milieu)} & 460 \\
+        \hline
+        \text{18° (butée droite)} & 570 \\
+        \hline
+    \end{tabular}
+    \caption{Commande moteur à imposer en fonction de l'angle de direction souhaité}
+    \label{tab:commande}
+\end{table}
 
 Comme on peut le constater la commande n'est pas linéaire et la plage -18° à 0° est plus grande que la plage 0° à 18°. Nous verrons dans la section \ref{sec:entrainement} comment prendre en compte ces non linéarités dans l'entraînement.
 
@@ -289,17 +297,20 @@ Les paramètres du moteur de direction peuvent être testés via le code \verb|t
 Le moteur de propulsion utilisé est commandé via un signal PWM. 
 Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}. Les performances identifiées sont les suivantes :
 
-\begin{tabular}{|c|c|}
-    \hline
-    Paramètre        & Valeur \\
-    \hline
-    Point zéro       & 7.09  \\
-    \hline
-    Point mort       & 0.399 \\
-    \hline
-    Delta prop max   & 1.5   \\
-    \hline
-\end{tabular}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        Paramètre        & Valeur \\
+        \hline
+        Point zéro       & 7.09  \\
+        \hline
+        Point mort       & 0.399 \\
+        \hline
+        Delta prop max   & 1.5   \\
+        \hline
+    \end{tabular}
+\end{table}
 
 \vspace*{0.5cm}
 
@@ -309,25 +320,42 @@ Pour ces raisons un entrainement dur simulateur est inévitable.
 
 Un entrainement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entrainement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
 
-\section{Introduction du bruit pour améliorer la simulation}
-Pour que la simulation soit la plus proche possible de la réalité, il est crucial d'introduire des éléments de bruit. 
-Ces bruits peuvent affecter les mesures et les actions de la voiture, et ainsi permettre au réseau de neurones de 
-mieux généraliser lors du passage au monde réel.
+\vspace{0.5cm}
 
+Pour les voitures travaillant avec la vision, les images issues de la simulation sont encore plus éloignées des images de la caméra réelle que ce n'est le cas pour le Lidar. Il existe des architectures de modèles combinant CNN et vision transformer construits pour se concentrer sur les parties importantes de l'image et qui possèdent des bonnes capacités de généralisation \cite{li2023style}.
 
-\subsection{Bruit sur les mesures}
+\vspace{0.5cm}
+
+Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteu r phyique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
+
+\subsection{Introduction du bruit pour améliorer la simulation}
+Pour améliorer le passage sim2real l'ajout de bruit est très efficace. En effet, les modèles de réseaux de neurones sont très sensibles aux données d'entrée. Si les données d'entrée sont trop propres, le modèle risque de surapprendre sur ces données et de ne pas généraliser sur des données plus bruitées.\vspace{0.5cm}
+
+Ces bruits peuvent intervenir à deux niveau :
+\begin{itemize}
+    \item les mesures des capteurs 
+    \item les actions de la Voiture
+\end{itemize}
+
+\subsubsection{Bruit sur les mesures}
 Dans un environnement réel, les capteurs ne fournissent pas des mesures parfaites. Les mesures du Lidar peuvent 
 toujours être affectées par de petites interférences ou des variations mineures. Pour simuler ces conditions, 
 on peut ajouter un léger bruit gaussien aux mesures du Lidar. Cela permet au réseau de neurones de s'adapter 
-à des données moins parfaites, similaires à celles qu'il rencontrera dans le monde réel.
+à des données moins parfaites, similaires à celles qu'il rencontrera dans le monde réel. Cette approche n'a pas encore été étudiée, nous avons considéré que les mesures du Lidar étaient suffisamment consitentes.
 
 
-\subsection{Bruit sur les actions}
-Les actions de la voiture, telles que l'angle de direction ou la vitesse, peuvent également être sujettes à des 
+\subsubsection{Bruit sur les actions}
+
+Les actions de la voiture, telles que l'angle de direction ou la vitesse, sont sujettes à des 
 variations imprévues. Par exemple, un servomoteur peut ne pas toujours répondre de manière identique à une même 
 commande en raison de l'usure ou des variations de tension. Pour prendre en compte ces imperfections, on peut 
 ajouter du bruit aux actions commandées par le réseau de neurones. Cela aide à rendre l'agent plus robuste face 
-aux variations qu'il pourrait rencontrer sur une voiture réelle.
+aux variations qu'il pourrait rencontrer sur une voiture réelle. Ainsi lorsque le réseau de neurones est transposé sur la voiture réelle, il ne sera pas surpris si les moteurs ne répondent pas exactement comme dans la simulation.
+
+\vspace{0.5cm}
+
+\paragraph{Bruit sur l'angle de direction}
+La modélisation du bruit retenue pour l'angle de direction découle de l'observation faite en \ref{tab:commande}. En effet, la commande moteur n'est pas linéaire en fonction de l'angle de direction. Nous avons donc décidé de modéliser le bruit sur l'angle de direction par une loi normale centrée sur la commande moteur donnée par la table \ref{tab:commande}.
 
 
 
