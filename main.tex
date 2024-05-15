@@ -13,6 +13,9 @@
 \usepackage{fullpage} % for fullpage
 \usepackage{babel} % for french
 \usepackage[T1]{fontenc} % for french
+\usepackage[backend=biber,style=numeric]{biblatex}
+
+\addbibresource{references.bib}
 
 \geometry{left = 1.8cm, right = 1.8cm}
 
@@ -175,18 +178,131 @@ distance entre la voiture et les murs du circuit.
 
 
 \section{Simulation to real world}
+
+\subsection{Le problème du SimToReal}
+
 L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur un simulateur à une voiture réelle. 
 Une fois le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière 
-autonome sur un circuit réel. Un des principaux défis du SimToReal est de reproduire le plus fidèlement possible les 
-conditions du monde réel dans le simulateur.
+autonome sur un circuit réel. Un des principaux défis du SimToReal est d'éviter d'avoir une voiture dont les performances sont bonnes sur simulateur mais mauvaises sur la voiture réelle.
 
-\vspace{0.5cm}
-La phase d'entraînement sur simulateur a plusieurs avantages. Tout d'abord, elle permet de réduire le temps et le coût
+
+L'entrainement sur simulateur a beaucoup avantages. Tout d'abord, elle permet de réduire le temps et le coût
 de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
 alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
 la simulation permet de tester des scénarios dangereux pour la voiture réelle sans risquer de l'endommager.
 Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash dans un mur. Il est donc plus
 efficace de réaliser l'entraînement sur simulateur.
+
+\subsection{Amélioration de la resssemblance entre le simulateur et le monde réel}
+
+\subsubsection{Amélioration de la simulation}
+
+La première solution pour améliorer le passage du simulateur à la voiture réelle est d'avoir une simulation et un monde réel les plus proches possibles. Dans cet effort, deux solutions sont possibles :
+\begin{itemize}
+    \item Améliorer la simulation pour qu'elle soit la plus proche possible de la réalité.
+    \item Modifier le monde réel pour qu'il soit le plus proche possible de la simulation.
+\end{itemize}
+
+Pour améliorer la simulation, on peut jouer sur différents paramètres du moteur physique. Par exemple, dans la simulation initiale de Webots, le couple des moteurs de direction est de 1e4 Nm ce qui n'est pas réaliste.
+Le moteur physique de Webots est puissant et les paramètres par défaut ne sont pas réalistes.
+Il est par exemple possible d'ajouter des coefficients de frottements entre les pneus et le sol via \verb|WorldInfo| -> \verb|contactProperties|. Il suffit ensuite de remplir les champs \verb|contactMaterial| des objets \verb|Solid "sol_piste"| et \verb|wheel|.
+\vspace*{0.5cm}
+
+Toutefois la modification des paramètres physiques de la simulation est délicate et des comportement inattendus apparaissent très souvent. Par exemple l'observation des roues se désagrégeant après quelques secondes de simulation lorsque des frottements sont simulés.
+\vspace*{0.5cm}
+
+On peut toutefois lister quelques paramètres modifiables pour améliorer la simulation:
+\begin{itemize}
+    \item \textbf{Coefficient de frottement} : Il est possible d'ajouter/modifier le coefficient de frottement entre les roues et le sol pour que la voiture glisse plus ou moins.
+    \item \textbf{Masse de la voiture} : La masse de la voiture peut être modifiée.
+    \item \textbf{Puissance des moteurs} : Le couple et la vitesse max des moteurs peut être augmentée ou diminuée.
+    \item \textbf{Le nombre de roues motrices} : Selon la voiture réelle utilisée, il peut être nécessaire de modifier le nombre de roues motrices.
+    \item \textbf{Angle de braquage des roues} : L'angle de braquage des roues peut être modifié pour que la voiture puisse tourner plus ou moins.
+    \item \textbf{Lidar} : Les paramètres du Lidar peuvent être modifiés.
+\end{itemize} 
+
+\subsubsection{Correction sur la voiture réelle} \vspace{0.5cm}
+
+Il est aussi possible de jouer sur certains paramètres physiques réels. Les \textbf{moteurs} Dynamixel utilisés pour la direction sont configurables via \href{https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/}{Dynamixel Wizard}
+\vspace{0.5cm}
+
+Il est très important de faire tourner la voiture réelle une fois la simulation prise en main pour prendre conscience des ces écarts simulation/réalité et essayer de les corriger. Certains sont propres à la voiture et peuvent être corrigés directement via le code python de contrôle de la voiture. 
+
+\vspace{0.5cm}
+
+\paragraph{Lidar}
+En testant le bon fonctionnement du \textbf{Lidar}, nous avons constaté que certains points Lidar valaient 0 dans une zone dégagée. Dans ce cas, nous avons implémenté une simple interpolation linéaire pour remplacer ces valeurs par des valeurs cohérentes.
+
+\paragraph{Batterie}
+Le niveau de la \textbf{batterie} influence aussi beaucoup la réactivité des moteurs. Si c'est un paramètre qui peut être pris en compte dans la simulation, s'assurer d'utiliser une batterie chargée pour les tests réels est une solution plus efficace.
+
+Nous avons identifié les performances suivantes :
+
+\begin{tabular}{|c|c|}
+    \hline
+    \text{Batterie vide} & 0.8 m/s en imposant 1 m/s \\
+    \hline
+    \text{Batterie pleine} & 2.3 m/s en imposant 1 m/s \\
+    \hline
+    \text{Vitesse max batterie pleine} & 10 m/s \\
+    \hline
+\end{tabular}
+
+\paragraph{Moteur de direction}
+
+Les \textbf{angles de braquage} peuvent être étudiés sur la voiture réelle. La commande du moteur de direction utilisé sur la voiture réelle (\href{https://emanual.robotis.com/docs/en/dxl/ax/ax-12w/}{Dynamixel AX12}) se fait via l'envoie d'un nombre entier. Les commandes dépendent des paramètres de configuration sur Dynamixel Wizard. Il existe deux butées pour les moteurs :
+\begin{itemize}
+    \item Une butée mécanique qui empêche le moteur de tourner plus loin sur le système de direction.
+    \item Une butée logicielle qui empêche le moteur de tourner plus loin que la valeur maximale ou minimale configurée (configurable sur Wizard)
+\end{itemize}
+
+Selon le système de direction utilisé les angles de braquage limites ne sont pas les mêmes. Pour \verb|voitureBasile| les angles sont de -18° et 18°. 
+
+Les paramètres identifiés sont :
+\begin{tabular}{|c|c|}
+    \hline
+    \text{Angle souhaité} & \text{Commande moteur} \\
+    \hline
+    \text{-18° (butée gauche)} & 300 \\
+    \hline
+    \text{0° (milieu)} & 460 \\
+    \hline
+    \text{18° (butée droite)} & 570 \\
+    \hline
+\end{tabular}
+
+Comme on peut le constater la commande n'est pas linéaire et la plage -18° à 0° est plus grande que la plage 0° à 18°. Nous verrons dans la section \ref{sec:entrainement} comment prendre en compte ces non linéarités dans l'entraînement.
+
+\vspace{0.5cm}
+
+Les paramètres du moteur de direction peuvent être testés via le code \verb|test_direction_AX12.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}
+    
+
+\paragraph{Moteur de propulsion}
+
+Le moteur de propulsion utilisé est commandé via un signal PWM. 
+Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}. Les performances identifiées sont les suivantes :
+
+\begin{tabular}{|c|c|}
+    \hline
+    Paramètre        & Valeur \\
+    \hline
+    Point zéro       & 7.09  \\
+    \hline
+    Point mort       & 0.399 \\
+    \hline
+    Delta prop max   & 1.5   \\
+    \hline
+\end{tabular}
+
+\vspace*{0.5cm}
+
+Pour ces raisons un entrainement dur simulateur est inévitable. 
+
+\subsection{Améliorations possibles}
+
+Un entrainement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entrainement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
+
 
 \section{Introduction du bruit pour améliorer la simulation}
 Pour que la simulation soit la plus proche possible de la réalité, il est crucial d'introduire des éléments de bruit. 
@@ -323,6 +439,7 @@ de PPO (tres jolie graph d'entrainempent)
 
 presenter le temps au tour comme critere de performance
 
+\printbibliography
 
 
 \end{document}

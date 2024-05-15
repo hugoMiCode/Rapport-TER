@@ -9,12 +9,21 @@
 \contentsline {subsection}{\numberline {2.3}La voiture}{6}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Le lidar}{7}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Simulation to real world}{7}{section.3}%
-\contentsline {section}{\numberline {4}Introduction du bruit pour améliorer la simulation}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Bruit sur les mesures}{7}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Bruit sur les actions}{7}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Application à la voiture autonome}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Espace d'observation}{7}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Espace d'action}{8}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Entraînement du réseau de neurones}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Algorithme d'apprentissage}{8}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}%
+\contentsline {subsection}{\numberline {3.1}Le problème du SimToReal}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Amélioration de la resssemblance entre le simulateur et le monde réel}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Amélioration de la simulation}{7}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Correction sur la voiture réelle}{8}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Lidar}{8}{section*.7}%
+\contentsline {paragraph}{Batterie}{8}{section*.8}%
+\contentsline {paragraph}{Moteur de direction}{8}{section*.9}%
+\contentsline {paragraph}{Moteur de propulsion}{8}{section*.10}%
+\contentsline {subsection}{\numberline {3.3}Améliorations possibles}{9}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Introduction du bruit pour améliorer la simulation}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Bruit sur les mesures}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Bruit sur les actions}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Application à la voiture autonome}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Espace d'observation}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Espace d'action}{10}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Entraînement du réseau de neurones}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Algorithme d'apprentissage}{10}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Conclusion}{12}{section.7}%

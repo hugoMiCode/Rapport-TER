@@ -1,0 +1,86 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{rusu2022progressive}{misc}{}
+      \name{author}{8}{}{%
+        {{hash=677dfee41a39b5ac7e138f5ce14467e9}{%
+           family={Rusu},
+           familyi={R\bibinitperiod},
+           given={Andrei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=f9c8c310eebac7c3fffd3be2d97a5eb7}{%
+           family={Rabinowitz},
+           familyi={R\bibinitperiod},
+           given={Neil\bibnamedelima C.},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=d422b1bf74c0632ee012bc51e397622d}{%
+           family={Desjardins},
+           familyi={D\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d7617682498ee9735efdd8bf09b26c0f}{%
+           family={Soyer},
+           familyi={S\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5172437525948e3a9c13ee82c976ea69}{%
+           family={Kirkpatrick},
+           familyi={K\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=481308b301166b521c74fde6566e97e6}{%
+           family={Kavukcuoglu},
+           familyi={K\bibinitperiod},
+           given={Koray},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7045b009b04d57bd2e19b5dfa0864d4f}{%
+           family={Pascanu},
+           familyi={P\bibinitperiod},
+           given={Razvan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=dc7c14ebfc2b431292d1ff4ded63d5e7}{%
+           family={Hadsell},
+           familyi={H\bibinitperiod},
+           given={Raia},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{22adc18c4e0336d27a9218f01270e773}
+      \strng{fullhash}{8fb00bd7983175d128c2352f9f18ee56}
+      \strng{bibnamehash}{22adc18c4e0336d27a9218f01270e773}
+      \strng{authorbibnamehash}{22adc18c4e0336d27a9218f01270e773}
+      \strng{authornamehash}{22adc18c4e0336d27a9218f01270e773}
+      \strng{authorfullhash}{8fb00bd7983175d128c2352f9f18ee56}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Progressive Neural Networks}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 1606.04671
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
