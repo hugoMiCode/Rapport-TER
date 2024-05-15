@@ -304,8 +304,9 @@ Les \textbf{angles de braquage} peuvent être étudiés sur la voiture réelle. 
     \item Une butée logicielle qui empêche le moteur de tourner plus loin que la valeur maximale ou minimale configurée (configurable sur Wizard)
 \end{itemize}
 
+\vspace{0.5cm}
+\noindent
 Selon le système de direction utilisé les angles de braquage limites ne sont pas les mêmes. Pour \verb|voitureBasile| les angles sont de -18° et 18°. 
-
 Les paramètres identifiés sont :
 \begin{table}[H]
     \centering
@@ -325,9 +326,6 @@ Les paramètres identifiés sont :
 \end{table}
 
 Comme on peut le constater la commande n'est pas linéaire et la plage -18° à 0° est plus grande que la plage 0° à 18°. Nous verrons dans la section \ref{sec:entrainement} comment prendre en compte ces non linéarités dans l'entraînement.
-
-\vspace{0.5cm}
-
 Les paramètres du moteur de direction peuvent être testés via le code \verb|test_direction_AX12.py| disponible \href{https://github.com/basileplus/RCAutonomousCar.git}{ici}
     
 
@@ -351,8 +349,8 @@ Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| di
     \end{tabular}
 \end{table}
 
-\vspace*{0.5cm}
-
+\vspace{0.5cm}
+\noindent
 Pour ces raisons un entraînement sur simulateur est inévitable. 
 
 
@@ -368,8 +366,10 @@ Pour les voitures travaillant avec la vision, les images issues de la simulation
 Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteur physique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
 
 \subsection{Introduction du bruit pour améliorer la simulation}
-Pour améliorer le passage sim2real l'ajout de bruit est très efficace. En effet, les modèles de réseaux de neurones sont très sensibles aux données d'entrée. Si les données d'entrée sont trop propres, le modèle risque de surapprendre sur ces données et de ne pas généraliser sur des données plus bruitées.\vspace{0.5cm}
+Pour améliorer le passage sim2real l'ajout de bruit est très efficace. En effet, les modèles de réseaux de neurones sont très sensibles aux données d'entrée. Si les données d'entrée sont trop propres, le modèle risque de surapprendre sur ces données et de ne pas généraliser sur des données plus bruitées.
 
+\vspace{0.5cm}
+\noindent
 Ces bruits peuvent intervenir à deux niveau :
 \begin{itemize}
     \item les mesures des capteurs 
@@ -393,16 +393,17 @@ aux variations qu'il pourrait rencontrer sur une voiture réelle. Ainsi lorsque 
 
 \vspace{0.5cm}
 
-Les l'espace de commande que l'on obtient en sortie du réseau de neurones est un angle de direction et une vitesse. Il y a donc deux champs auxquels on peut ajouter du bruit à chaque itération :
+L'espace de commande que l'on obtient en sortie du réseau de neurones est un angle de direction et une vitesse. Il y a donc deux champs auxquels on peut ajouter du bruit à chaque itération :
 \begin{itemize}
     \item La commande de vitesse
     \item La commande d'angle
 \end{itemize}
 
-Ce bruit peut être ajouté dans les fonctions \verb|set_vitesse_m_s| et \verb|set_direction_degre| du fichier \verb|TT02_controller_RL.py|. 
+\vspace{0.5cm}
+Ce bruit peut être ajouté dans les fonctions \verb|set_vitesse_m_s()| et \verb|set_direction_degre()| du fichier \verb|TT02_controller_RL.py|.
+Ainsi à chaque commande en sortie du réseau de neurone, la voiture ne répondra pas exactement comme attendu mais répondra à une consigne bruitée. 
 
-Ainsi à chaque commande en sortie du réseau de neurone, la voiture ne répondra pas exactement comme attendu mais répondra à une consigne bruitée. \vspace{0.5cm}
-
+\vspace{0.5cm}
 Ce type de bruit n'a pas été implémenté. Pour notre étude nous avons préféré nous concentrer sur l'ajout d'aléatoire sur les commandes de la voiture mais non pas à chaque timesteps (cad à chaque nouvelle commande est associé un bruit aléatoire) mais à chaque réinitialisation de la voiture. Cette approche est explicitée dans la sous-section \ref{subsec:random}
 
 \subsection{Ajout d'aléatoire dans les commandes}
@@ -413,7 +414,7 @@ Nous avons implémenté un système de randomisation des directions et des vites
 L'aléatoire peut être activé ou désactivé via la variable \verb|self.add_randomness| dans le fichier \verb|TT02_controller_RL.py|.
 
 \subsubsection{Randomisation des directions}
-
+\noindent
 Commençons par décrire comment nous avons modélisé la réponse de la voiture à une consigne d'angle.
 
 \vspace{0.5cm}
@@ -434,23 +435,19 @@ Cette fonction a été tracée figure \ref{fig:angle_com}
 \end{figure}
 
 \bigskip
-
+\noindent
 où :
 \begin{itemize}
     \item \(\alpha\) : L'angle en degrés réellement imposé à la voiture.
     \item \(\theta\) : La consigne d'angle en degrés.
     \item \(b\) : Le biais directionnel, une constante ajoutée pour ajuster l'angle lorsque la consigne est $\theta = 0$.
 \end{itemize}
-
-Cette fonction passe par les points $(-18, -18)$, $(0, b)$ et $(18, 18)$.
-
-Ainsi nous respectons les angles de butée de la voiture réelle
+\noindent
+Cette fonction passe par les points $(-18, -18)$, $(0, b)$ et $(18, 18)$. Ainsi nous respectons les angles de butée de la voiture réelle
 
 \paragraph{Ajout d'aléatoire}
 
-Pour améliorer la robustesse du modèle, à chaque replacement de la voiture, on initialise aléatoirement le paramètre \verb|self.random_dir_bias| qui représente $b$.
-
-La valeur est choisie aléatoirement entre [-\verb|self.max_random_dir_bias|,\verb|self.max_random_dir_bias|]
+Pour améliorer la robustesse du modèle, à chaque replacement de la voiture, on initialise aléatoirement le paramètre \verb|self.random_dir_bias| qui représente $b$. La valeur est choisie aléatoirement entre [-\verb|self.max_random_dir_bias|,\verb|self.max_random_dir_bias|]
 
 \subsection{Randomisation des vitesses}
 
@@ -829,7 +826,7 @@ En effet la vitesse à consignes équivalentes n'est pas la même en fonction de
 
 
 
-
+\newpage
 \printbibliography
 
 \end{document}
