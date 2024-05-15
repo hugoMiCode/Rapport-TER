@@ -188,6 +188,8 @@ entre la voiture et les murs.
     \caption{Capture d'écran du circuit}
 \end{figure}
 
+
+
 \subsection{La voiture}
 La voiture utilisée dans le simulateur est une voiture RC au format $1/10^{\text{ème}}$. Elle a pour objectif de
 reproduire le plus fidèlement possible une voiture réelle. La voiture est équipée d'un lidar qui permet de mesurer la
@@ -198,6 +200,10 @@ distance entre la voiture et les murs du circuit à 360 degrés avec une résolu
     \includegraphics[width=0.9\textwidth]{Images/Voiture.png}
     \caption{Capture d'écran de la voiture}
 \end{figure}
+
+\subsection{Les secteurs}
+
+Afin de pouvoir comparer différentes fonctions de récompense et mesurer la performance de la voiture il est possible de mesurer le temps au tour de la voiture (à condition qu'elle finisse un tour complet)
 
 
 \section{Simulation to real world}
@@ -399,7 +405,7 @@ Ainsi à chaque commande en sortie du réseau de neuronne, la voiture ne répond
 
 Ce type de bruit n'a pas été implémenté. Pour notre étude nous avons préféré nous concentrer sur l'ajout d'aléatoire sur les commandes de la voiture mais non pas à chaque timesteps (cad à chaque nouvelle commande est associé un bruit aléatoire) mais à chaque réinitialisation de la voiture. Cette approche est explicitée dans la sous-section \ref{subsec:random}
 
-\subsection{Ajout d'aléatoire}
+\subsection{Ajout d'aléatoire dans les commandes}
 
 \label{subsec:random}
 
@@ -407,7 +413,7 @@ Nous avons implémenté un système de randomisation des directions et des vites
 
 L'alétoire peut être activé ou désactivé via la variable \verb|self.add_randomness| dans le fichier \verb|TT02_controller_RL.py|.
 
-\subsubsection{Randomisation des directions}
+\subsubsubsection{Randomisation des directions}
 
 Commençons par décrire comment nous avons modélisé la réponse de la voiture à une consigne d'angle.
 
@@ -466,15 +472,29 @@ Pour la vitesse, nous avons choisi de modéliser la réponse de la voiture à un
 
 \subsection{Ajout d'obstacles aléatoires}
 
-Pour améliorer la robustesse du modèle, nous avons ajouté des obstacles aléatoires sur le circuit. Ces obstacles sont des blocs cubiques. Ils sont placés aléatoirement sur le circuit à chaque réinitialisation de la voiture. Leurs positions sont choisies aléatoirement parmis une liste de positions prédéfinies. 
+Pour améliorer la robustesse du modèle, nous avons ajouté des obstacles aléatoires sur le circuit (voir figure \ref{fig:random_obs}). Ces obstacles sont des blocs cubiques. Ils sont placés aléatoirement sur le circuit à chaque réinitialisation de la voiture. Leurs positions sont choisies aléatoirement parmis une liste de positions prédéfinies. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/random_obs.png}
+    \caption{Circuit avec obstacles aléatoires}
+    \label{fig:random_obs}
+\end{figure}
+
 \vspace{0.5cm}
 La génération d'obstacles est gérée dans le code \verb|supervisor_controller.py| disponible \href{https://github.com/basileplus/RCAutonomousCar/tree/main/simulatedCar}{ici} dans le fichier \verb|controllers\TT02_controller_RL|. Le nombre d'obstacle à placer peut être modifié directement dans boucle \verb|while| principale à la ligne
 \begin{lstlisting}
-indexes = random.sample(range(0,len(obstacles_positions)), 15)
+indexes = random.sample(range(0,len(obstacles_positions)), nb_obstacles)
 \end{lstlisting}
 
+L'ajout d'obstacles peut être désactivée via la variable \verb|self.add_obstacle| dans le fichier \verb|supervisore_controller.py|.
 
-\subsubsection{Résultats}
+\subsection{Position de départ aléatoires}
+
+Tout comme pour les obstacles aléatoires, la voiture démarre à une position aléatoire sur le circuit à chaque réinitialisation. La position de départ est choisie aléatoirement parmis une liste de positions prédéfinies. On ajoute de plus un angle de départ aléatoire pour que la voiture ne démarre pas toujours dans la même direction.
+
+
+\subsection{Résultats}
 
 Des entrainements avec l'ajout d'aléatoire ont été lancés. Lorsque les paramètres \verb|max_random_dir_bias|, \verb|max_random_speed_prop|, \verb|max_random_speed_bias| et le nombre d'obstacles ne sont pas trop élevés, la voiture est capable de conduire correctement et de faire des tours de circuit.
 
@@ -595,6 +615,8 @@ Le deuxième état regroupe toutes les situations autres que celle de collision.
 une valeur dépendant de la vitesse actuelle de la voiture ainsi que la distance minimale donnée par le tableau de Lidar. 
 Les fonctions de récompenses seront détaillées plus tard. On indique aussi ici si l'on a terminé l'épisode via la 
 variable \texttt{done}.
+
+Afin de pouvoir une metrics cohérente entre différentes fonctions de récompenses, il est possible de mesurer le temps au tour et au secteur de la voiture. Ainsi on peut comparer différentes fonctions de récompenses et mesurer la performance de la voiture. Plusieurs autre paramètres ont été ajoutés, comme le nombre de collisions, le nombre de tours, le nombre de secteurs, le temps total, le meilleur temps au tour. Tout est affichable 
 
 \subsubsection*{reset()}
 Dans la fonction \texttt{reset()}, on indique la démarche à suivre lorsque l'on veut retourner au début d'un épisode. 

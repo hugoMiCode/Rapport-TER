@@ -2365,6 +2365,9 @@
     <bcf:citekey order="2" intorder="1">rusu2022progressive</bcf:citekey>
     <bcf:citekey order="3" intorder="1">li2023style</bcf:citekey>
     <bcf:citekey order="4" intorder="1">pmlr-v205-truong23a</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">rusu2022progressive</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">li2023style</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">pmlr-v205-truong23a</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
