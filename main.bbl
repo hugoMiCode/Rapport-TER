@@ -19,6 +19,57 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{li2023style}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=2de5fa5434944b1c2b5b8781746603fb}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Keyu},
+           giveni={K\bibinitperiod}}}%
+        {{hash=fbd850296c1fd652578ffae6e7f67705}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Xinyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=b24e61ceeb29d5ca249936ec3d4fe645}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Chengwei},
+           giveni={C\bibinitperiod}}}%
+        {{hash=67f3a673d1b5d096250c6b53c122ceb4}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ang},
+           giveni={A\bibinitperiod}}}%
+        {{hash=831e0a3e4a1e2f071b583d7e6d57b774}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Yangxin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=57b3af22dc461a821153fa08ea68e6f7}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Max\bibnamedelimb Q.\bibnamedelimi -H.},
+           giveni={M\bibinitperiod\bibinitdelim Q\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod}}}%
+      }
+      \strng{namehash}{ad6e5fff90ae877928c38acecb384f35}
+      \strng{fullhash}{07f76957f2977127506588da7b383429}
+      \strng{bibnamehash}{ad6e5fff90ae877928c38acecb384f35}
+      \strng{authorbibnamehash}{ad6e5fff90ae877928c38acecb384f35}
+      \strng{authornamehash}{ad6e5fff90ae877928c38acecb384f35}
+      \strng{authorfullhash}{07f76957f2977127506588da7b383429}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.RO}
+      \field{eprinttype}{arXiv}
+      \field{title}{Style Transfer Enabled Sim2Real Framework for Efficient Learning of Robotic Ultrasound Image Analysis Using Simulated Data}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2305.09169
+      \endverb
+    \endentry
     \entry{rusu2022progressive}{misc}{}
       \name{author}{8}{}{%
         {{hash=677dfee41a39b5ac7e138f5ce14467e9}{%
@@ -78,6 +129,91 @@
       \field{year}{2022}
       \verb{eprint}
       \verb 1606.04671
+      \endverb
+    \endentry
+    \entry{pmlr-v205-truong23a}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=139304df592b7e72c310886e63dbbf7e}{%
+           family={Truong},
+           familyi={T\bibinitperiod},
+           given={Joanne},
+           giveni={J\bibinitperiod}}}%
+        {{hash=82e77503e85b7bb8e2238f2bb31ade8b}{%
+           family={Rudolph},
+           familyi={R\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=95289bd490ab125647cfd9a876f5e21b}{%
+           family={Yokoyama},
+           familyi={Y\bibinitperiod},
+           given={Naoki\bibnamedelima Harrison},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=aa8fa5d2aeb75e54ef50a01069e9b942}{%
+           family={Chernova},
+           familyi={C\bibinitperiod},
+           given={Sonia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d0a408119272ca1bd49b625e3b927d05}{%
+           family={Batra},
+           familyi={B\bibinitperiod},
+           given={Dhruv},
+           giveni={D\bibinitperiod}}}%
+        {{hash=46bd892db32151eba3d23779cffcd5fe}{%
+           family={Rai},
+           familyi={R\bibinitperiod},
+           given={Akshara},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=f417cd6035c123830b8d2a7db0786c79}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod}}}%
+        {{hash=960bafbd9746de687fe79d44bd1825cb}{%
+           family={Kulic},
+           familyi={K\bibinitperiod},
+           given={Dana},
+           giveni={D\bibinitperiod}}}%
+        {{hash=bf6c79e40aed52b9ce8f49e0e19325fb}{%
+           family={Ichnowski},
+           familyi={I\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{213e84b299b05d7ff0ff9f4163e0b9cd}
+      \strng{fullhash}{96b7fb44d4826bdd88977dda8be4f050}
+      \strng{bibnamehash}{213e84b299b05d7ff0ff9f4163e0b9cd}
+      \strng{authorbibnamehash}{213e84b299b05d7ff0ff9f4163e0b9cd}
+      \strng{authornamehash}{213e84b299b05d7ff0ff9f4163e0b9cd}
+      \strng{authorfullhash}{96b7fb44d4826bdd88977dda8be4f050}
+      \strng{editorbibnamehash}{9b10bc08bc9fd349fdb747409ddfce83}
+      \strng{editornamehash}{9b10bc08bc9fd349fdb747409ddfce83}
+      \strng{editorfullhash}{9b10bc08bc9fd349fdb747409ddfce83}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{If we want to train robots in simulation before deploying them in reality, it seems natural and almost self-evident to presume that reducing the sim2real gap involves creating simulators of increasing fidelity (since reality is what it is). We challenge this assumption and present a contrary hypothesis – sim2real transfer of robots may be improved with lower (not higher) fidelity simulation. We conduct a systematic large-scale evaluation of this hypothesis on the problem of visual navigation – in the real world, and on 2 different simulators (Habitat and iGibson) using 3 different robots (A1, AlienGo, Spot). Our results show that, contrary to expectation, adding fidelity does not help with learning; performance is poor due to slow simulation speed (preventing large-scale learning) and overfitting to inaccuracies in simulation physics. Instead, building simple models of the robot motion using real-world data can improve learning and generalization.}
+      \field{booktitle}{Proceedings of The 6th Conference on Robot Learning}
+      \field{month}{14--18 Dec}
+      \field{series}{Proceedings of Machine Learning Research}
+      \field{title}{Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation}
+      \field{volume}{205}
+      \field{year}{2023}
+      \field{pages}{859\bibrangedash 870}
+      \range{pages}{12}
+      \verb{file}
+      \verb https://proceedings.mlr.press/v205/truong23a/truong23a.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v205/truong23a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v205/truong23a.html
       \endverb
     \endentry
   \enddatalist

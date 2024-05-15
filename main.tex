@@ -192,6 +192,7 @@ Une fois le réseau de neurones entraîné, il est transféré à la voiture ré
 autonome sur un circuit réel. Un des principaux défis du SimToReal est d'éviter d'avoir une voiture dont les performances sont bonnes sur simulateur mais mauvaises sur la voiture réelle.
 
 
+\vspace{0.5cm}
 L'entrainement sur simulateur a beaucoup avantages. Tout d'abord, elle permet de réduire le temps et le coût
 de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
 alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
@@ -209,6 +210,7 @@ La première solution pour améliorer le passage du simulateur à la voiture ré
     \item Modifier le monde réel pour qu'il soit le plus proche possible de la simulation.
 \end{itemize}
 
+\vspace{0.5cm}
 Pour améliorer la simulation, on peut jouer sur différents paramètres du moteur physique. Par exemple, dans la simulation initiale de Webots, le couple des moteurs de direction est de 1e4 Nm ce qui n'est pas réaliste.
 Le moteur physique de Webots est puissant et les paramètres par défaut ne sont pas réalistes.
 Il est par exemple possible d'ajouter des coefficients de frottements entre les pneus et le sol via \verb|WorldInfo| -> \verb|contactProperties|. Il suffit ensuite de remplir les champs \verb|contactMaterial| des objets \verb|Solid "sol_piste"| et \verb|wheel|.
@@ -314,11 +316,11 @@ Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| di
 
 \vspace*{0.5cm}
 
-Pour ces raisons un entrainement dur simulateur est inévitable. 
+Pour ces raisons un entraînement dur simulateur est inévitable. 
 
 \subsection{Améliorations possibles}
 
-Un entrainement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entrainement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
+Un entraînement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l’entraînement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
 
 \vspace{0.5cm}
 
@@ -326,7 +328,7 @@ Pour les voitures travaillant avec la vision, les images issues de la simulation
 
 \vspace{0.5cm}
 
-Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteu r phyique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
+Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteur physique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
 
 \subsection{Introduction du bruit pour améliorer la simulation}
 Pour améliorer le passage sim2real l'ajout de bruit est très efficace. En effet, les modèles de réseaux de neurones sont très sensibles aux données d'entrée. Si les données d'entrée sont trop propres, le modèle risque de surapprendre sur ces données et de ne pas généraliser sur des données plus bruitées.\vspace{0.5cm}
@@ -643,14 +645,18 @@ la suite du projet.
 
 \section{Conclusion}
 
+Pour conclure, l'apprentissage par renforcement est une méthode très efficace pour entraîner une voiture autonome.
+Nous avons pu entraîner un réseau de neurones sur un simulateur et le transférer à une voiture réelle. La voiture
+a réalisé des performances très satisfaisantes lors de la course. Cependant, des améliorations sont possibles pour
+améliorer les performances de la voiture. Il serait nécessaire de mettre en place un système d'asservissement de 
+la vitesse et de la direction pour permettre à la voiture de suivre les consignes données par le réseau de neurones.
+En effet la vitesse à consignes équivalentes n'est pas la même en fonction de la charge de la batterie.
 
 
 
 
-Note:
-Il faut ajouter la partie ou on améliore la simulation Webots avec les obstacles, Basile l'a fait.
+
 
 \printbibliography
-
 
 \end{document}
