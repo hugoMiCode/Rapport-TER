@@ -427,6 +427,35 @@ donnons en argument \texttt{total\_timesteps} qui correspond au nombre total d'i
 pouvons ensuite sauvegarder le modèle avec la fonction \texttt{model.save()} qui prend en argument le nom du fichier
 de sauvegarde.
 
+\section*{Passage à la voiture réelle}
+Une fois le réseau de neurones entraîné sur le simulateur, nous pouvons le transférer à la voiture réelle. C'est 
+la dernière étape du projet. Cette transition du monde virtuel au monde réel nécessite une adaptation des algorithmes 
+et des fonctionnalités pour s'adapter aux contraintes et aux spécificités de la réalité.
+
+\subsubsection*{Implémentation des commandes}
+
+Pour garantir que les commandes générées par le réseau de neurones soient interprétables par le programme de la 
+voiture réelle, nous avons développé deux fonctions similaires à celles utilisées dans le simulateur: 
+\texttt{set\_vitesse\_m\_s()} et \texttt{set\_direction\_degre()}. Cependant, cette fois-ci, les commandes sont 
+transmises en m/s et en degrés de direction au lieu d'être appliquées directement. De plus, pour le Lidar, nous 
+avons veillé à ne pas laisser de valeurs nulles dans la partie "utile" du Lidar (valeurs des indices 0 à 99 et 260 
+à 359).
+
+
+\subsubsection*{Chargement du réseau de neurones}
+Le chargement du réseau de neurones a été réalisé à l'aide de la fonction \texttt{load()} de Stable-Baselines3. 
+Une fois chargé, le réseau peut être utilisé via la fonction \texttt{predict()}, prenant en entrée les observations 
+et renvoyant les actions prédites. Cependant, contrairement à la simulation, l'accès direct à la vitesse et à la
+direction n'est pas possible en raison de l'absence de système d'asservissement. Nous ne pouvons fournir que les 
+consignes de vitesse et d'angle de l'instant précédent en tant qu'observations.
+
+\subsubsection*{Lidar}
+
+Pour utiliser le Lidar, on utilise une classe \texttt{Lidar()} permettant de l'initialiser, de le démarrer et 
+d'acquérir les valeurs. Un thread \texttt{thread\_scan\_lidar} a été lancé pour permettre l'acquisition continue 
+des données Lidar. Parallèlement, un second thread \texttt{thread\_conduite\_autonome} a été lancé pour gérer le 
+pilotage de la voiture. Dans la fonction \texttt{conduite\_autonome()}, nous traitons les données Lidar et utilisons 
+ces informations pour décider des actions à prendre, comme reculer en cas de détection d'obstacle.
 
 
 
