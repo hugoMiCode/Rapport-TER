@@ -17,3 +17,29 @@
       archivePrefix={arXiv},
       primaryClass={cs.RO}
 }
+
+@misc{tobin2017domain,
+      title={Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World}, 
+      author={Josh Tobin and Rachel Fong and Alex Ray and Jonas Schneider and Wojciech Zaremba and Pieter Abbeel},
+      year={2017},
+      eprint={1703.06907},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}
+
+
+@InProceedings{pmlr-v205-truong23a,
+  title = 	 {Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation},
+  author =       {Truong, Joanne and Rudolph, Max and Yokoyama, Naoki Harrison and Chernova, Sonia and Batra, Dhruv and Rai, Akshara},
+  booktitle = 	 {Proceedings of The 6th Conference on Robot Learning},
+  pages = 	 {859--870},
+  year = 	 {2023},
+  editor = 	 {Liu, Karen and Kulic, Dana and Ichnowski, Jeff},
+  volume = 	 {205},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {14--18 Dec},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v205/truong23a/truong23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v205/truong23a.html},
+  abstract = 	 {If we want to train robots in simulation before deploying them in reality, it seems natural and almost self-evident to presume that reducing the sim2real gap involves creating simulators of increasing fidelity (since reality is what it is). We challenge this assumption and present a contrary hypothesis – sim2real transfer of robots may be improved with lower (not higher) fidelity simulation. We conduct a systematic large-scale evaluation of this hypothesis on the problem of visual navigation – in the real world, and on 2 different simulators (Habitat and iGibson) using 3 different robots (A1, AlienGo, Spot). Our results show that, contrary to expectation, adding fidelity does not help with learning; performance is poor due to slow simulation speed (preventing large-scale learning) and overfitting to inaccuracies in simulation physics. Instead, building simple models of the robot motion using real-world data can improve learning and generalization.}
+}
