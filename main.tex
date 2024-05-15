@@ -119,10 +119,6 @@ avons utilisé Webots pour la simulation, gym et stable baselines pour l'apprent
 Dans un second temps, nous avons transféré le réseau de neurones du simulateur à la voiture réelle.
 La voiture est équipée d'un lidar qui permet de mesurer la distance entre la voiture et les murs du circuit.
 
-\vspace{0.5cm}
-\noindent
-Note: Presenter Webots, la voiture réelle, la voiture sur simulateur, le lidar, le circuit etc...
-
 
 \subsection{L'apprentissage par renforcement}
 L'apprentissage par renforcement est une méthode d'apprentissage automatique qui permet à un agent 
@@ -179,8 +175,6 @@ Python pour contrôler la voiture dans le simulateur.
     \caption{Capture d'écran de Webots}
 \end{figure}
 
-\noindent
-Note: Présenter le circuit, la voiture, le lidar, le code Python etc...
 
 \subsection{Le circuit}
 Le circuit dans l'environment de Webots a pour but de simuler un circuit réel sur lequel la voiture autonome doit
@@ -197,15 +191,13 @@ entre la voiture et les murs.
 \subsection{La voiture}
 La voiture utilisée dans le simulateur est une voiture RC au format $1/10^{\text{ème}}$. Elle a pour objectif de
 reproduire le plus fidèlement possible une voiture réelle. La voiture est équipée d'un lidar qui permet de mesurer la
-distance entre la voiture et les murs du circuit.
+distance entre la voiture et les murs du circuit à 360 degrés avec une résolution de 1 degré.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{Images/Voiture.png}
     \caption{Capture d'écran de la voiture}
 \end{figure}
-
-\subsection{Le lidar}
 
 
 \section{Simulation to real world}
@@ -216,10 +208,11 @@ L'objectif du SimToReal est de transférer un réseau de neurones entraîné sur
 Une fois le réseau de neurones entraîné, il est transféré à la voiture réelle pour qu'elle puisse conduire de manière autonome sur un circuit réel. Un des principaux défis du SimToReal est d'éviter d'avoir une voiture dont les performances sont bonnes sur simulateur mais mauvaises sur la voiture réelle.
 
 
-L'entrainement sur simulateur a beaucoup avantages. Tout d'abord, elle permet de réduire le temps et le coût
+\vspace{0.5cm}
+L'entraînement sur simulateur a beaucoup d'avantages. Tout d'abord, il permet de réduire le temps et le coût
 de l'entraînement. En effet, il est possible de simuler des milliers d'épisodes en quelques heures 
 alors qu'il faudrait plusieurs jours pour réaliser le même nombre d'épisodes sur une voiture réelle. De plus,
-la simulation permet de tester des scénarios dangereux pour la voiture réelle sans risquer de l'endommager.
+la simulation permet de tester des scénarios dangereux pour la voiture sans risquer de l'endommager.
 Sur la voiture réelle, il faut aussi la replacer à la main après chaque crash dans un mur. Il est donc plus
 efficace de réaliser l'entraînement sur simulateur.
 
@@ -238,6 +231,7 @@ Voici les fonctionnalité que nous allons détailler plus bas :
 \end{itemize}
 
 \subsection{Amélioration de la resssemblance entre le simulateur et le monde réel}
+\subsection{Amélioration de la ressemblance entre le simulateur et le monde réel}
 
 \subsubsection{Amélioration de la simulation}
 
@@ -247,6 +241,7 @@ La première solution pour améliorer le passage du simulateur à la voiture ré
     \item Modifier le monde réel pour qu'il soit le plus proche possible de la simulation.
 \end{itemize}
 
+\vspace{0.5cm}
 Pour améliorer la simulation, on peut jouer sur différents paramètres du moteur physique. Par exemple, dans la simulation initiale de Webots, le couple des moteurs de direction est de 1e4 Nm ce qui n'est pas réaliste.
 Le moteur physique de Webots est puissant et les paramètres par défaut ne sont pas réalistes.
 Il est par exemple possible d'ajouter des coefficients de frottements entre les pneus et le sol via \verb|WorldInfo| -> \verb|contactProperties|. Il suffit ensuite de remplir les champs \verb|contactMaterial| des objets \verb|Solid "sol_piste"| et \verb|wheel|.
@@ -352,10 +347,21 @@ Le test du moteur de propulsion se fait via le code \verb|test_propulsion.py| di
 
 \vspace*{0.5cm}
 
-Pour ces raisons un entrainement dur simulateur est inévitable. 
+Pour ces raisons un entraînement sur simulateur est inévitable. 
 
 
 \subsection{Ajout de bruit}
+Un entraînement supplémentaire de la voiture réelle pourrait s'avérer très pertinent en plus de l'entraînement sur simulation pour améliorer le passage sim2real. Dans ce cas, une voie d'exploration est d'utiliser un modèle de type Progressive Neural Network, qui permet au modèle d'intelligemment utiliser ses connaissances acquises sur simulateur tout en continuant d'apprendre sur le circuit réel \cite{rusu2022progressive}. 
+
+\vspace{0.5cm}
+
+Pour les voitures travaillant avec la vision, les images issues de la simulation sont encore plus éloignées des images de la caméra réelle que ce n'est le cas pour le Lidar. Il existe des architectures de modèles combinant CNN et vision transformer construits pour se concentrer sur les parties importantes de l'image et qui possèdent des bonnes capacités de généralisation \cite{li2023style}.
+
+\vspace{0.5cm}
+
+Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Webots est un moteur physique complexe et en plus d'être complexe à manipuler, il est difficile de comprendre les comportements inattendus. Il semblerait qu'une simulation très simpliste comme présentée dans \href{https://www.youtube.com/watch?v=Cy155O5R1Oo&list=PLg2V2juOLiPWxd5fQOz1la37etAf9_WoW&index=4}{cette vidéo} pourrait présenter de meilleures performances, en plus d'être plus accessible. Cette idée selon laquelle le passage sim2real est améliorer lorsque la simulation est plus réaliste (et donc plus complexe) est contredite par les résultats de \cite{pmlr-v205-truong23a} qui montrent que des simulations plus simples peuvent être plus efficaces pour le passage sim2real.
+
+\subsection{Introduction du bruit pour améliorer la simulation}
 Pour améliorer le passage sim2real l'ajout de bruit est très efficace. En effet, les modèles de réseaux de neurones sont très sensibles aux données d'entrée. Si les données d'entrée sont trop propres, le modèle risque de surapprendre sur ces données et de ne pas généraliser sur des données plus bruitées.\vspace{0.5cm}
 
 Ces bruits peuvent intervenir à deux niveau :
@@ -498,17 +504,28 @@ Utiliser une simulation plus simple pourrait améliorer le passage sim2real. Web
 
 
 \section{Application à la voiture autonome}
-Pour appliquer l'apprentissage par renforcement à une voiture autonome, il est essentiel de définir correctement 
-l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel.
+Pour appliquer l'apprentissage par renforcement à une voiture autonome, nous devons définir correctement 
+l'espace d'observation et l'espace d'action en tenant compte des contraintes du monde réel. En effet, 
+tout ce qui est possible dans un simulateur n'est pas forcément réalisable dans le monde réel. 
+
+\subsection{Espace d'action}
+L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut:
+\begin{itemize}
+    \item La vitesse de la voiture
+    \item L'angle de direction de la voiture
+\end{itemize}
+Dans notre cas, les actions seront le fait d'augmenter ou de diminuer les consignes de vitesse et d'angle de direction.
+
 
 \subsection{Espace d'observation}
 L'espace d'observation doit inclure toutes les informations pertinentes que la voiture peut obtenir de son environnement.
-Dans notre cas, nous utilisons le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
-la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation.
+Dans notre cas, le Lidar pour mesurer les distances aux obstacles. Si un système de contrôle de 
+la vitesse est en place, la vitesse actuelle de la voiture pourrait également faire partie de l'espace d'observation. 
 
-\subsection{Espace d'action}
-L'espace d'action est limité aux commandes que l'agent peut envoyer à la voiture. Cela inclut l'incrémentation de 
-l'angle de direction via le servomoteur et l'incrémentation de la vitesse via le moteur.
+\vspace{0.5cm}
+Dans notre cas nous avons donné les données du lidar à l'instant présent et à l'instant précédent, cela permet
+de donner une information sur la vitesse de la voiture et une certaine inertie à la voiture. Nous avons également
+les ancienne consignes de vitesse et d'angle de direction pour donner une information sur la dynamique de la voiture.
 
 
 \section{Entraînement du réseau de neurones}
@@ -781,14 +798,18 @@ la suite du projet.
 
 \section{Conclusion}
 
+Pour conclure, l'apprentissage par renforcement est une méthode très efficace pour entraîner une voiture autonome.
+Nous avons pu entraîner un réseau de neurones sur un simulateur et le transférer à une voiture réelle. La voiture
+a réalisé des performances très satisfaisantes lors de la course. Cependant, des améliorations sont possibles pour
+améliorer les performances de la voiture. Il serait nécessaire de mettre en place un système d'asservissement de 
+la vitesse et de la direction pour permettre à la voiture de suivre les consignes données par le réseau de neurones.
+En effet la vitesse à consignes équivalentes n'est pas la même en fonction de la charge de la batterie.
 
 
 
 
-Note:
-Il faut ajouter la partie ou on améliore la simulation Webots avec les obstacles, Basile l'a fait.
+
 
 \printbibliography
-
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3) (preloaded format=pdflatex 2024.3.18)  15 MAY 2024 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3) (preloaded format=pdflatex 2024.3.18)  15 MAY 2024 17:08
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -902,7 +902,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count492
 \@quotereset=\count493
-(main.aux)
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -924,11 +924,10 @@ LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 Package hyperref Info: Link coloring OFF on input line 53.
- (main.out) (main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
- (D:\Program Files (x86)\MikTex\tex/context/base/mkii\supp-pdf.mkii
+(D:\Program Files (x86)\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count494
 \scratchdimen=\dimen307
@@ -1005,7 +1004,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
 Package biblatex Info: Reference section=0 on input line 53.
 Package biblatex Info: Reference segment=0 on input line 53.
-<Images/Logo-ENS-Paris-Saclay.png, id=138, 674.52pt x 300.12125pt>
+<Images/Logo-ENS-Paris-Saclay.png, id=6, 674.52pt x 300.12125pt>
 File: Images/Logo-ENS-Paris-Saclay.png Graphic file (type png)
 <use Images/Logo-ENS-Paris-Saclay.png>
 Package pdftex.def Info: Images/Logo-ENS-Paris-Saclay.png  used on input line 89.
@@ -1018,104 +1017,113 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
  (D:\Program Files (x86)\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/Logo-Universite-Paris-Saclay.jpg, id=140, 481.8pt x 321.2pt>
+<Images/Logo-Universite-Paris-Saclay.jpg, id=8, 481.8pt x 321.2pt>
 File: Images/Logo-Universite-Paris-Saclay.jpg Graphic file (type jpg)
 <use Images/Logo-Universite-Paris-Saclay.jpg>
 Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input line 93.
 (pdftex.def)             Requested size: 138.20398pt x 92.13599pt.
  [1
 
-{C:/Users/Basile/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Logo-ENS-Paris-Saclay.png> <./Images/Logo-Universite-Paris-Saclay.jpg>] (main.toc)
+{C:/Users/Basile/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Logo-ENS-Paris-Saclay.png> <./Images/Logo-Universite-Paris-Saclay.jpg>]
+No file main.toc.
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
- [2]
-<Images/RL.png, id=191, 392.46625pt x 129.48375pt>
+[2]
+<Images/RL.png, id=26, 392.46625pt x 129.48375pt>
 File: Images/RL.png Graphic file (type png)
 <use Images/RL.png>
-Package pdftex.def Info: Images/RL.png  used on input line 133.
+Package pdftex.def Info: Images/RL.png  used on input line 129.
 (pdftex.def)             Requested size: 307.12207pt x 101.33278pt.
  [3 <./Images/RL.png>]
-<Images/Webots.png, id=202, 1379.1525pt x 744.53156pt>
+<Images/Webots.png, id=41, 1379.1525pt x 744.53156pt>
 File: Images/Webots.png Graphic file (type png)
 <use Images/Webots.png>
-Package pdftex.def Info: Images/Webots.png  used on input line 178.
+Package pdftex.def Info: Images/Webots.png  used on input line 174.
 (pdftex.def)             Requested size: 460.6753pt x 248.69537pt.
  [4]
-<Images/Circuit.png, id=207, 1671.99657pt x 739.26187pt>
+<Images/Circuit.png, id=48, 1671.99657pt x 739.26187pt>
 File: Images/Circuit.png Graphic file (type png)
 <use Images/Circuit.png>
-Package pdftex.def Info: Images/Circuit.png  used on input line 193.
+Package pdftex.def Info: Images/Circuit.png  used on input line 187.
 (pdftex.def)             Requested size: 460.6753pt x 203.6868pt.
  [5 <./Images/Webots.png>]
-<Images/Voiture.png, id=214, 1028.34187pt x 466.74374pt>
+<Images/Voiture.png, id=56, 1028.34187pt x 466.74374pt>
 File: Images/Voiture.png Graphic file (type png)
 <use Images/Voiture.png>
-Package pdftex.def Info: Images/Voiture.png  used on input line 204.
+Package pdftex.def Info: Images/Voiture.png  used on input line 198.
 (pdftex.def)             Requested size: 460.6753pt x 209.09264pt.
  [6 <./Images/Circuit.png> <./Images/Voiture.png>]
 
 LaTeX Warning: Citation 'tobin2017domain' on page 7 undefined on input line 228.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 252.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 256.
 (D:\Program Files (x86)\MikTex\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [7] [8]
 
-LaTeX Warning: Reference `sec:entrainement' on page 9 undefined on input line 326.
+LaTeX Warning: Reference `sec:entrainement' on page 9 undefined on input line 330.
 
 [9]
-Overfull \hbox (37.00471pt too wide) in paragraph at lines 390--391
+Overfull \hbox (37.00471pt too wide) in paragraph at lines 408--409
 []\T1/cmr/m/n/10 Ce bruit peut être ajouté dans les fonc-tions [][]\T1/cmtt/m/n/10 set_vitesse_m_s []\T1/cmr/m/n/10 et [][]\T1/cmtt/m/n/10 set_direction_degre []\T1/cmr/m/n/10 du fi-chier [][]\T1/cmtt/m/n/10 TT02_controller_RL.py[]\T1/cmr/m/n/10 . 
  []
 
 
-Overfull \hbox (6.70656pt too wide) in paragraph at lines 402--403
+LaTeX Warning: Reference `subsec:random' on page 10 undefined on input line 412.
+
+[10]
+Overfull \hbox (6.70656pt too wide) in paragraph at lines 420--421
 []\T1/cmr/m/n/10 L'alétoire peut être ac-tivé ou désac-tivé via la va-riable [][]\T1/cmtt/m/n/10 self.add_randomness []\T1/cmr/m/n/10 dans le fi-chier [][]\T1/cmtt/m/n/10 TT02_controller_RL.py[]\T1/cmr/m/n/10 . 
  []
 
-<Images/angle_com.png, id=253, 1273.75874pt x 834.86906pt>
+
+LaTeX Warning: Reference `tab:commande' on page 11 undefined on input line 430.
+
+
+LaTeX Warning: Reference `fig:angle_com' on page 11 undefined on input line 434.
+
+<Images/angle_com.png, id=114, 1273.75874pt x 834.86906pt>
 File: Images/angle_com.png Graphic file (type png)
 <use Images/angle_com.png>
-Package pdftex.def Info: Images/angle_com.png  used on input line 420.
+Package pdftex.def Info: Images/angle_com.png  used on input line 438.
 (pdftex.def)             Requested size: 307.12207pt x 201.28989pt.
-[10] [11 <./Images/angle_com.png>]
-Overfull \hbox (65.14449pt too wide) in paragraph at lines 473--474
+[11 <./Images/angle_com.png>]
+Overfull \hbox (65.14449pt too wide) in paragraph at lines 491--492
 []\T1/cmr/m/n/10 Des en-trai-ne-ments avec l'ajout d'aléa-toire ont été lan-cés. Lorsque les pa-ra-mètres [][]\T1/cmtt/m/n/10 max_random_dir_bias[]\T1/cmr/m/n/10 , [][]\T1/cmtt/m/n/10 max_random_speed_prop[]\T1/cmr/m/n/10 ,
  []
 
-[12]
-<Images/Piste Entrainement.png, id=289, 953.81343pt x 847.66687pt>
+[12] [13]
+<Images/Piste Entrainement.png, id=158, 953.81343pt x 847.66687pt>
 File: Images/Piste Entrainement.png Graphic file (type png)
 <use Images/Piste Entrainement.png>
-Package pdftex.def Info: Images/Piste Entrainement.png  used on input line 524.
+Package pdftex.def Info: Images/Piste Entrainement.png  used on input line 553.
 (pdftex.def)             Requested size: 409.49348pt x 363.93347pt.
- [13] [14 <./Images/Piste Entrainement.png>] [15]
+ [14 <./Images/Piste Entrainement.png>] [15]
 \openout4 = `main.pyg'.
 
  (_minted-main/default.pygstyle) (_minted-main/44EB607F51EEC78520D8CB7D6DE90E4DCF33289265490CC72470AF6FAFE9A294.pygtex
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 8.
  (D:\Program Files (x86)\MikTex\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)) [16]
+)) [16] [17]
 \openout4 = `main.pyg'.
 
- (_minted-main/C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex) [17]
-<Images/2_EssaisLibresEtQualifications_48.JPG, id=326, 1850.112pt x 1387.584pt>
+ (_minted-main/C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex) [18]
+<Images/2_EssaisLibresEtQualifications_48.JPG, id=202, 1850.112pt x 1387.584pt>
 File: Images/2_EssaisLibresEtQualifications_48.JPG Graphic file (type jpg)
 <use Images/2_EssaisLibresEtQualifications_48.JPG>
-Package pdftex.def Info: Images/2_EssaisLibresEtQualifications_48.JPG  used on input line 750.
+Package pdftex.def Info: Images/2_EssaisLibresEtQualifications_48.JPG  used on input line 779.
 (pdftex.def)             Requested size: 409.49348pt x 307.11145pt.
- [18]
-<Images/4_Courses_29.JPG, id=336, 1850.112pt x 1387.584pt>
+<Images/4_Courses_29.JPG, id=203, 1850.112pt x 1387.584pt>
 File: Images/4_Courses_29.JPG Graphic file (type jpg)
 <use Images/4_Courses_29.JPG>
-Package pdftex.def Info: Images/4_Courses_29.JPG  used on input line 759.
+Package pdftex.def Info: Images/4_Courses_29.JPG  used on input line 788.
 (pdftex.def)             Requested size: 409.49348pt x 307.11145pt.
  [19 <./Images/2_EssaisLibresEtQualifications_48.JPG>] [20 <./Images/4_Courses_29.JPG>]
 
 Package biblatex Warning: Month out of range
-(biblatex)                at entry 'pmlr-v205-truong23a' on input line 791.
+(biblatex)                at entry 'pmlr-v205-truong23a' on input line 825.
 
 [21] (main.aux)
  ***********
@@ -1126,8 +1134,17 @@ L3 programming layer <2024-02-20>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 48DE8F87C3E3A18F8C15A01E6991A5A4;5855.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  7A8632BCE1D716101C37E0087F6A8899;6517.
 runsystem(del main.pyg)...executed.
 
 
@@ -1140,17 +1157,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37936 strings out of 474435
- 720758 string characters out of 5748931
- 1944190 words of memory out of 5000000
- 59651 multiletter control sequences out of 15000+600000
+ 37891 strings out of 474435
+ 719904 string characters out of 5748931
+ 1945190 words of memory out of 5000000
+ 59613 multiletter control sequences out of 15000+600000
  570397 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,10n,107p,1123b,1770s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,10n,107p,1123b,1751s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt0800.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0800.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Basile\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (21 pages, 14611222 bytes).
+Output written on main.pdf (21 pages, 14596409 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 816 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
