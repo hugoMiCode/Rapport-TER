@@ -819,4 +819,283 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
  (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
-F
+File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
+File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count481
+\c@bbx:relatedtotal=\count482
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cbx
+File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-02-13 L3 programming layer (loader) 
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count483
+\l__pdf_internal_box=\box73
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2024-02-13 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3.sty (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2024-02-13 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
+))
+runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > main.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
+
+runsystem(del main.aex)...executed.
+
+
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count484
+\@quotereset=\count485
+(main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+Package hyperref Info: Link coloring OFF on input line 28.
+ (main.out) (main.out)
+\@outlinefile=\write7
+\openout7 = `main.out'.
+
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count486
+\scratchdimen=\dimen303
+\scratchbox=\box74
+\nofMPsegments=\count487
+\nofMParguments=\count488
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count489
+\MPscratchDim=\dimen304
+\MPnumerator=\count490
+\makeMPintoPDFobject=\count491
+\everyMPtoPDFconversion=\toks48
+) (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: french babel package is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(51.21504pt, 511.86491pt, 51.21504pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=511.86491pt
+* \textheight=556.47656pt
+* \oddsidemargin=-21.05495pt
+* \evensidemargin=-21.05495pt
+* \topmargin=23.12738pt
+* \headheight=0.0pt
+* \headsep=0.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \degres on input line 28.
+LaTeX Info: Redefining \up on input line 28.
+Package biblatex Info: Trying to load language 'french'...
+Package biblatex Info: ... file 'french.lbx' found.
+(C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
+File: french.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout6 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
+Package biblatex Info: Reference section=0 on input line 28.
+Package biblatex Info: Reference segment=0 on input line 28.
+<Images/Logo-ENS-Paris-Saclay.png, id=118, 674.52pt x 300.12125pt>
+File: Images/Logo-ENS-Paris-Saclay.png Graphic file (type png)
+<use Images/Logo-ENS-Paris-Saclay.png>
+Package pdftex.def Info: Images/Logo-ENS-Paris-Saclay.png  used on input line 64.
+(pdftex.def)             Requested size: 138.20398pt x 61.48862pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<Images/Logo-Universite-Paris-Saclay.jpg, id=120, 481.8pt x 321.2pt>
+File: Images/Logo-Universite-Paris-Saclay.jpg Graphic file (type jpg)
+<use Images/Logo-Universite-Paris-Saclay.jpg>
+Package pdftex.def Info: Images/Logo-Universite-Paris-Saclay.jpg  used on input line 68.
+(pdftex.def)             Requested size: 138.20398pt x 92.13599pt.
+ [1
+
+{C:/Users/Hugo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Logo-ENS-Paris-Saclay.png> <./Images/Logo-Universite-Paris-Saclay.jpg>] (main.toc)
+\tf@toc=\write8
+\openout8 = `main.toc'.
+
+ [2]
+<Images/RL.png, id=166, 392.46625pt x 129.48375pt>
+File: Images/RL.png Graphic file (type png)
+<use Images/RL.png>
+Package pdftex.def Info: Images/RL.png  used on input line 108.
+(pdftex.def)             Requested size: 307.12207pt x 101.33278pt.
+ [3 <./Images/RL.png>]
+<Images/Webots.png, id=177, 1379.1525pt x 744.53156pt>
+File: Images/Webots.png Graphic file (type png)
+<use Images/Webots.png>
+Package pdftex.def Info: Images/Webots.png  used on input line 153.
+(pdftex.def)             Requested size: 460.6753pt x 248.69537pt.
+ [4]
+<Images/Circuit.png, id=182, 1671.99657pt x 739.26187pt>
+File: Images/Circuit.png Graphic file (type png)
+<use Images/Circuit.png>
+Package pdftex.def Info: Images/Circuit.png  used on input line 168.
+(pdftex.def)             Requested size: 460.6753pt x 203.6868pt.
+ [5 <./Images/Webots.png>]
+<Images/Voiture.png, id=189, 1028.34187pt x 466.74374pt>
+File: Images/Voiture.png Graphic file (type png)
+<use Images/Voiture.png>
+Package pdftex.def Info: Images/Voiture.png  used on input line 179.
+(pdftex.def)             Requested size: 460.6753pt x 209.09264pt.
+ [6 <./Images/Circuit.png> <./Images/Voiture.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 216.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [7]
+
+LaTeX Warning: Reference `sec:entrainement' on page 8 undefined on input line 290.
+
+[8] [9]
+<Images/Piste Entrainement.png, id=233, 953.81343pt x 847.66687pt>
+File: Images/Piste Entrainement.png Graphic file (type png)
+<use Images/Piste Entrainement.png>
+Package pdftex.def Info: Images/Piste Entrainement.png  used on input line 388.
+(pdftex.def)             Requested size: 409.49348pt x 363.93347pt.
+ [10] [11 <./Images/Piste Entrainement.png>] [12]
+\openout4 = `main.pyg'.
+
+ (_minted-main/default.pygstyle) (_minted-main/44EB607F51EEC78520D8CB7D6DE90E4DCF33289265490CC72470AF6FAFE9A294.pygtex
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 8.
+ (C:\Users\Hugo\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)) [13]
+\openout4 = `main.pyg'.
+
+ (_minted-main/C22E59DA881D4370E8E743D502DB360CCF33289265490CC72470AF6FAFE9A294.pygtex) [14]
+<Images/2_EssaisLibresEtQualifications_48.JPG, id=274, 1850.112pt x 1387.584pt>
+File: Images/2_EssaisLibresEtQualifications_48.JPG Graphic file (type jpg)
+<use Images/2_EssaisLibresEtQualifications_48.JPG>
+Package pdftex.def Info: Images/2_EssaisLibresEtQualifications_48.JPG  used on input line 614.
+(pdftex.def)             Requested size: 409.49348pt x 307.11145pt.
+ [15]
+<Images/4_Courses_29.JPG, id=284, 1850.112pt x 1387.584pt>
+File: Images/4_Courses_29.JPG Graphic file (type jpg)
+<use Images/4_Courses_29.JPG>
+Package pdftex.def Info: Images/4_Courses_29.JPG  used on input line 623.
+(pdftex.def)             Requested size: 409.49348pt x 307.11145pt.
+ [16 <./Images/2_EssaisLibresEtQualifications_48.JPG>] [17 <./Images/4_Courses_29.JPG>]
+
+Package biblatex Warning: Month out of range
+(biblatex)                at entry 'pmlr-v205-truong23a' on input line 660.
+
+[18] (main.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-13>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 31AECDE234741B5AD1BAA9E33BBB6666;5170.
+runsystem(del main.pyg)...executed.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 36121 strings out of 474462
+ 701920 string characters out of 5743355
+ 1938998 words of memory out of 5000000
+ 57840 multiletter control sequences out of 15000+600000
+ 570397 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 102i,10n,107p,1117b,1770s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt0800.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0800.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Hugo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Hugo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (18 pages, 14502384 bytes).
+PDF statistics:
+ 854 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+
